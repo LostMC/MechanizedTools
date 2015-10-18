@@ -62,86 +62,86 @@ public class MockBlockState implements BlockState {
 
     @Override
     public byte getLightLevel() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public World getWorld() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Location getLocation() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Location getLocation(Location loc) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Chunk getChunk() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getTypeId() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean setTypeId(int type) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean update() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean update(boolean force) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean update(boolean force, boolean applyPhysics) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public byte getRawData() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setRawData(byte data) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean isPlaced() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setMetadata(String metadataKey, MetadataValue newMetadataValue) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public List<MetadataValue> getMetadata(String metadataKey) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean hasMetadata(String metadataKey) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void removeMetadata(String metadataKey, Plugin owningPlugin) {
-
+        throw new UnsupportedOperationException();
     }
 }

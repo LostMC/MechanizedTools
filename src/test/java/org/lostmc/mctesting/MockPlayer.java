@@ -64,1246 +64,1246 @@ public class MockPlayer implements Player {
 
     @Override
     public String getDisplayName() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setDisplayName(String name) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public String getPlayerListName() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setPlayerListName(String name) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setCompassTarget(Location loc) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Location getCompassTarget() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public InetSocketAddress getAddress() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean isConversing() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void acceptConversationInput(String input) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean beginConversation(Conversation conversation) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void abandonConversation(Conversation conversation) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void abandonConversation(Conversation conversation, ConversationAbandonedEvent details) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void sendRawMessage(String message) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void kickPlayer(String message) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void chat(String msg) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean performCommand(String command) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean isSneaking() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setSneaking(boolean sneak) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean isSprinting() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setSprinting(boolean sprinting) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void saveData() {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void loadData() {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setSleepingIgnored(boolean isSleeping) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean isSleepingIgnored() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void playNote(Location loc, byte instrument, byte note) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void playNote(Location loc, Instrument instrument, Note note) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void playSound(Location location, Sound sound, float volume, float pitch) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void playSound(Location location, String sound, float volume, float pitch) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void playEffect(Location loc, Effect effect, int data) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public <T> void playEffect(Location loc, Effect effect, T data) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void sendBlockChange(Location loc, Material material, byte data) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean sendChunkChange(Location loc, int sx, int sy, int sz, byte[] data) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void sendBlockChange(Location loc, int material, byte data) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void sendSignChange(Location loc, String[] lines) throws IllegalArgumentException {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void sendMap(MapView map) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void updateInventory() {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void awardAchievement(Achievement achievement) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void removeAchievement(Achievement achievement) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean hasAchievement(Achievement achievement) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void incrementStatistic(Statistic statistic) throws IllegalArgumentException {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void decrementStatistic(Statistic statistic) throws IllegalArgumentException {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void incrementStatistic(Statistic statistic, int amount) throws IllegalArgumentException {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void decrementStatistic(Statistic statistic, int amount) throws IllegalArgumentException {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setStatistic(Statistic statistic, int newValue) throws IllegalArgumentException {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getStatistic(Statistic statistic) throws IllegalArgumentException {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void incrementStatistic(Statistic statistic, Material material) throws IllegalArgumentException {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void decrementStatistic(Statistic statistic, Material material) throws IllegalArgumentException {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getStatistic(Statistic statistic, Material material) throws IllegalArgumentException {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void incrementStatistic(Statistic statistic, Material material, int amount) throws IllegalArgumentException {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void decrementStatistic(Statistic statistic, Material material, int amount) throws IllegalArgumentException {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setStatistic(Statistic statistic, Material material, int newValue) throws IllegalArgumentException {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void incrementStatistic(Statistic statistic, EntityType entityType) throws IllegalArgumentException {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void decrementStatistic(Statistic statistic, EntityType entityType) throws IllegalArgumentException {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getStatistic(Statistic statistic, EntityType entityType) throws IllegalArgumentException {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void incrementStatistic(Statistic statistic, EntityType entityType, int amount) throws IllegalArgumentException {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void decrementStatistic(Statistic statistic, EntityType entityType, int amount) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setStatistic(Statistic statistic, EntityType entityType, int newValue) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setPlayerTime(long time, boolean relative) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public long getPlayerTime() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public long getPlayerTimeOffset() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean isPlayerTimeRelative() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void resetPlayerTime() {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setPlayerWeather(WeatherType type) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public WeatherType getPlayerWeather() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void resetPlayerWeather() {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void giveExp(int amount) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void giveExpLevels(int amount) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public float getExp() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setExp(float exp) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getLevel() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setLevel(int level) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getTotalExperience() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setTotalExperience(int exp) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public float getExhaustion() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setExhaustion(float value) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public float getSaturation() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setSaturation(float value) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getFoodLevel() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setFoodLevel(int value) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Location getBedSpawnLocation() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setBedSpawnLocation(Location location) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setBedSpawnLocation(Location location, boolean force) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean getAllowFlight() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setAllowFlight(boolean flight) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void hidePlayer(Player player) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void showPlayer(Player player) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean canSee(Player player) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Location getLocation() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Location getLocation(Location loc) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setVelocity(Vector velocity) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Vector getVelocity() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean isOnGround() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public World getWorld() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean teleport(Location location) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean teleport(Location location, PlayerTeleportEvent.TeleportCause cause) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean teleport(Entity destination) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean teleport(Entity destination, PlayerTeleportEvent.TeleportCause cause) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public List<Entity> getNearbyEntities(double x, double y, double z) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getEntityId() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getFireTicks() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getMaxFireTicks() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setFireTicks(int ticks) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void remove() {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean isDead() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean isValid() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void sendMessage(String message) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void sendMessage(String[] messages) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Server getServer() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Entity getPassenger() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean setPassenger(Entity passenger) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean eject() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public float getFallDistance() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setFallDistance(float distance) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setLastDamageCause(EntityDamageEvent event) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public EntityDamageEvent getLastDamageCause() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean isBanned() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setBanned(boolean banned) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean isWhitelisted() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setWhitelisted(boolean value) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Player getPlayer() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public long getFirstPlayed() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public long getLastPlayed() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean hasPlayedBefore() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getTicksLived() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setTicksLived(int value) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void playEffect(EntityEffect type) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public EntityType getType() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean isInsideVehicle() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean leaveVehicle() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Entity getVehicle() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setCustomName(String name) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public String getCustomName() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setCustomNameVisible(boolean flag) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean isCustomNameVisible() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean isFlying() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setFlying(boolean value) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setFlySpeed(float value) throws IllegalArgumentException {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setWalkSpeed(float value) throws IllegalArgumentException {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public float getFlySpeed() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public float getWalkSpeed() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setTexturePack(String url) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setResourcePack(String url) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Scoreboard getScoreboard() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setScoreboard(Scoreboard scoreboard) throws IllegalArgumentException, IllegalStateException {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean isHealthScaled() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setHealthScaled(boolean scale) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setHealthScale(double scale) throws IllegalArgumentException {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public double getHealthScale() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Entity getSpectatorTarget() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setSpectatorTarget(Entity entity) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void sendTitle(String title, String subtitle) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void resetTitle() {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Map<String, Object> serialize() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean isOnline() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public String getName() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public PlayerInventory getInventory() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Inventory getEnderChest() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean setWindowProperty(InventoryView.Property prop, int value) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public InventoryView getOpenInventory() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public InventoryView openInventory(Inventory inventory) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public InventoryView openWorkbench(Location location, boolean force) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public InventoryView openEnchanting(Location location, boolean force) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void openInventory(InventoryView inventory) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void closeInventory() {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public ItemStack getItemInHand() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setItemInHand(ItemStack item) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public ItemStack getItemOnCursor() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setItemOnCursor(ItemStack item) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean isSleeping() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getSleepTicks() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public GameMode getGameMode() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setGameMode(GameMode mode) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean isBlocking() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getExpToLevel() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public double getEyeHeight() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public double getEyeHeight(boolean ignoreSneaking) {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Location getEyeLocation() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public List<Block> getLineOfSight(HashSet<Byte> transparent, int maxDistance) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public List<Block> getLineOfSight(Set<Material> transparent, int maxDistance) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Block getTargetBlock(HashSet<Byte> transparent, int maxDistance) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Block getTargetBlock(Set<Material> transparent, int maxDistance) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public List<Block> getLastTwoTargetBlocks(HashSet<Byte> transparent, int maxDistance) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public List<Block> getLastTwoTargetBlocks(Set<Material> transparent, int maxDistance) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Egg throwEgg() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Snowball throwSnowball() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Arrow shootArrow() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getRemainingAir() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setRemainingAir(int ticks) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getMaximumAir() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setMaximumAir(int ticks) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getMaximumNoDamageTicks() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setMaximumNoDamageTicks(int ticks) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public double getLastDamage() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int _INVALID_getLastDamage() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setLastDamage(double damage) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void _INVALID_setLastDamage(int damage) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getNoDamageTicks() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setNoDamageTicks(int ticks) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Player getKiller() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean addPotionEffect(PotionEffect effect) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean addPotionEffect(PotionEffect effect, boolean force) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean addPotionEffects(Collection<PotionEffect> effects) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean hasPotionEffect(PotionEffectType type) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void removePotionEffect(PotionEffectType type) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Collection<PotionEffect> getActivePotionEffects() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean hasLineOfSight(Entity other) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean getRemoveWhenFarAway() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setRemoveWhenFarAway(boolean remove) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public EntityEquipment getEquipment() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setCanPickupItems(boolean pickup) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean getCanPickupItems() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean isLeashed() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Entity getLeashHolder() throws IllegalStateException {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean setLeashHolder(Entity holder) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void damage(double amount) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void _INVALID_damage(int amount) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void damage(double amount, Entity source) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void _INVALID_damage(int amount, Entity source) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public double getHealth() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int _INVALID_getHealth() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setHealth(double health) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void _INVALID_setHealth(int health) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public double getMaxHealth() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int _INVALID_getMaxHealth() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setMaxHealth(double health) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void _INVALID_setMaxHealth(int health) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void resetMaxHealth() {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setMetadata(String metadataKey, MetadataValue newMetadataValue) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public List<MetadataValue> getMetadata(String metadataKey) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean hasMetadata(String metadataKey) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void removeMetadata(String metadataKey, Plugin owningPlugin) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean isPermissionSet(String name) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean isPermissionSet(Permission perm) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean hasPermission(String name) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean hasPermission(Permission perm) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public PermissionAttachment addAttachment(Plugin plugin, String name, boolean value) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public PermissionAttachment addAttachment(Plugin plugin) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public PermissionAttachment addAttachment(Plugin plugin, String name, boolean value, int ticks) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public PermissionAttachment addAttachment(Plugin plugin, int ticks) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void removeAttachment(PermissionAttachment attachment) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void recalculatePermissions() {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Set<PermissionAttachmentInfo> getEffectivePermissions() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void sendPluginMessage(Plugin source, String channel, byte[] message) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Set<String> getListeningPluginChannels() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public <T extends Projectile> T launchProjectile(Class<? extends T> projectile) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public <T extends Projectile> T launchProjectile(Class<? extends T> projectile, Vector velocity) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean isOp() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setOp(boolean value) {
-
+        throw new UnsupportedOperationException();
     }
 }
