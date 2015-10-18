@@ -8,6 +8,8 @@ import org.junit.Test;
 import org.lostmc.mctesting.MockBlock;
 import org.lostmc.mctesting.MockSign;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 import static org.hamcrest.Matchers.equalTo;
@@ -23,7 +25,7 @@ public class WorkAreaBuilderTest {
 
     @Test
     public void validArea() {
-        MockBlock[][][] array = MockBlock.createBlockArray(15, 15, 2, 63);
+        MockBlock[][][] array = MockBlock.createBlockArray(15, 15, 128, 63);
         insertValidAreaIntoArray(array, 3, 1, 0);
         WorkArea workArea = builder.build(signBlock);
 
@@ -131,6 +133,76 @@ public class WorkAreaBuilderTest {
     }
 
     @Test
+    public void setMinimumYViaRange() {
+        MockBlock[][][] array = MockBlock.createBlockArray(15, 15, 2, 63);
+        insertValidAreaIntoArray(array, 3, 1, 0, Arrays.asList("Excavator", "60-65"));
+
+        WorkArea workArea = builder.build(signBlock);
+
+        assertThat(workArea.getMinimumY(), equalTo(60));
+    }
+
+    @Test
+    public void setMaximumYViaRange() {
+        MockBlock[][][] array = MockBlock.createBlockArray(15, 15, 2, 63);
+        insertValidAreaIntoArray(array, 3, 1, 0, Arrays.asList("Excavator", "60-65"));
+
+        WorkArea workArea = builder.build(signBlock);
+
+        assertThat(workArea.getMaximumY(), equalTo(65));
+    }
+
+    @Test
+    public void invalidRangeByOrder() {
+        MockBlock[][][] array = MockBlock.createBlockArray(15, 15, 2, 63);
+        insertValidAreaIntoArray(array, 3, 1, 0, Arrays.asList("Excavator", "65-60"));
+
+        WorkArea workArea = builder.build(signBlock);
+
+        assertThat(workArea.isValid(), equalTo(false));
+    }
+
+    @Test
+    public void invalidMinimumYByHeight() {
+        MockBlock[][][] array = MockBlock.createBlockArray(15, 15, 128, 63);
+        insertValidAreaIntoArray(array, 3, 1, 0, Arrays.asList("Excavator", "129"));
+
+        WorkArea workArea = builder.build(signBlock);
+
+        assertThat(workArea.isValid(), equalTo(false));
+    }
+
+    @Test
+    public void invalidMinimumYByContent() {
+        MockBlock[][][] array = MockBlock.createBlockArray(15, 15, 2, 63);
+        insertValidAreaIntoArray(array, 3, 1, 0, Arrays.asList("Excavator", "aa"));
+
+        WorkArea workArea = builder.build(signBlock);
+
+        assertThat(workArea.isValid(), equalTo(false));
+    }
+
+    @Test
+    public void invalidMinimumYInRangeByContent() {
+        MockBlock[][][] array = MockBlock.createBlockArray(15, 15, 2, 63);
+        insertValidAreaIntoArray(array, 3, 1, 0, Arrays.asList("Excavator", "aa-60"));
+
+        WorkArea workArea = builder.build(signBlock);
+
+        assertThat(workArea.isValid(), equalTo(false));
+    }
+
+    @Test
+    public void invalidMaximumYInRangeByContent() {
+        MockBlock[][][] array = MockBlock.createBlockArray(15, 15, 2, 63);
+        insertValidAreaIntoArray(array, 3, 1, 0, Arrays.asList("Excavator", "60-aa"));
+
+        WorkArea workArea = builder.build(signBlock);
+
+        assertThat(workArea.isValid(), equalTo(false));
+    }
+
+    @Test
     public void setMaximumY() {
         int height = new Random().nextInt(128) + 128;
         MockBlock[][][] array = MockBlock.createBlockArray(15, 15, height, 63);
@@ -142,10 +214,15 @@ public class WorkAreaBuilderTest {
     }
 
     private void insertValidAreaIntoArray(MockBlock[][][] array, int signI, int signJ, int signK) {
-        createSign(array, signI, signJ, signK);
+        insertValidAreaIntoArray(array, signI, signJ, signK, Arrays.asList("Excavator", "56"));
+    }
+
+    private void insertValidAreaIntoArray(MockBlock[][][] array, int signI, int signJ, int signK, List<String> signLines) {
+        createSign(array, signI, signJ, signK, signLines);
         createEngineBlock();
         createSupplyChest();
         addRedstone();
+
     }
 
     private void addRedstone() {
@@ -165,7 +242,7 @@ public class WorkAreaBuilderTest {
         rt.setType(Material.REDSTONE_WIRE);
     }
 
-    private void createSign(MockBlock[][][] array, int signI, int signJ, int signK) {
+    private void createSign(MockBlock[][][] array, int signI, int signJ, int signK, List<String> signLines) {
         signBlock = array[signI][signJ][signK];
         signBlock.setType(Material.WALL_SIGN);
         MockSign sign = new MockSign(signBlock);
@@ -173,8 +250,10 @@ public class WorkAreaBuilderTest {
         Sign data = new Sign(Material.WALL_SIGN);
         data.setFacingDirection(BlockFace.NORTH);
         sign.setData(data);
-        sign.setLine(0, "Excavator");
-        sign.setLine(1, "56");
+        int i = 0;
+        for (String line : signLines) {
+            sign.setLine(i++, line);
+        }
     }
 
     private void createEngineBlock() {

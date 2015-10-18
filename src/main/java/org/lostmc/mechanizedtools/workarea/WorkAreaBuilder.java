@@ -51,9 +51,26 @@ public class WorkAreaBuilder {
         BlockState state = signBlock.getState();
         if (state.getType() == Material.WALL_SIGN) {
             Sign sign = (Sign) state;
-            workArea.setMinimumY(Integer.parseInt(sign.getLine(1)));
+            String line = sign.getLine(1);
+            String minimum = line;
+            try {
+                if (line.contains("-")) {
+                    String[] split = line.split("\\-");
+                    minimum = split[0];
+                    int maximumY = Integer.parseInt(split[1]);
+                    workArea.setMaximumY(maximumY);
+                } else {
+                    workArea.setMaximumY(signBlock.getWorld().getMaxHeight());
+                }
+                int minimumY = Integer.parseInt(minimum);
+                workArea.setMinimumY(minimumY);
+                if (workArea.getMinimumY() > workArea.getMaximumY()) {
+                    workArea.setValid(false);
+                }
+            } catch (NumberFormatException exception) {
+                workArea.setValid(false);
+            }
         }
-        workArea.setMaximumY(signBlock.getWorld().getMaxHeight());
     }
 
     private void traceRedstone(WorkArea workArea, BlockFace face, Block engineBlock) {
