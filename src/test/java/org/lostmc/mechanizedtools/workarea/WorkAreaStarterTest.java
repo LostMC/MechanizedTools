@@ -6,7 +6,9 @@ import org.junit.Test;
 import org.lostmc.mctesting.MockBlock;
 import org.lostmc.mctesting.MockBukkitScheduler;
 
+import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.instanceOf;
+import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.sameInstance;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
@@ -42,6 +44,7 @@ public class WorkAreaStarterTest {
 
         assertThat(scheduler.getPlugin(), sameInstance(plugin));
         assertThat(scheduler.getRunnable(), instanceOf(WorkAreaSignUpdater.class));
+        assertThat(scheduler.getMethod(), not(containsString("Asynchronously")));
     }
 
     @Test
@@ -57,5 +60,6 @@ public class WorkAreaStarterTest {
 
         assertThat(scheduler.getPlugin(), sameInstance(plugin));
         assertThat(scheduler.getRunnable(), instanceOf(WorkAreaLaborer.class));
+        assertThat(scheduler.getMethod(), containsString("Asynchronously"));
     }
 }

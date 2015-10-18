@@ -14,7 +14,9 @@ import org.lostmc.mctesting.MockPlayer;
 import org.lostmc.mctesting.MockSign;
 import org.lostmc.mechanizedtools.workarea.WorkAreaStarter;
 
+import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.instanceOf;
+import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.Matchers.sameInstance;
 import static org.junit.Assert.assertThat;
@@ -44,6 +46,7 @@ public class SignInteractionListenerTest {
 
         assertThat(scheduler.getPlugin(), sameInstance(plugin));
         assertThat(scheduler.getRunnable(), instanceOf(WorkAreaStarter.class));
+        assertThat(scheduler.getMethod(), containsString("Asynchronously"));
     }
 
     @Test
@@ -58,6 +61,7 @@ public class SignInteractionListenerTest {
 
         assertThat(scheduler.getPlugin(), sameInstance(plugin));
         assertThat(scheduler.getRunnable(), instanceOf(WorkAreaStarter.class));
+        assertThat(scheduler.getMethod(), containsString("Asynchronously"));
     }
 
     @Test
@@ -75,6 +79,7 @@ public class SignInteractionListenerTest {
             listener.playerInteract(event);
             assertThat(scheduler.getPlugin(), nullValue());
             assertThat(scheduler.getRunnable(), nullValue());
+            assertThat(scheduler.getMethod(), not(containsString("Asynchronously")));
         }
     }
 
@@ -91,6 +96,7 @@ public class SignInteractionListenerTest {
 
         assertThat(scheduler.getPlugin(), nullValue());
         assertThat(scheduler.getRunnable(), nullValue());
+        assertThat(scheduler.getMethod(), not(containsString("Asynchronously")));
     }
 
     @Test
@@ -106,5 +112,6 @@ public class SignInteractionListenerTest {
 
         assertThat(scheduler.getPlugin(), nullValue());
         assertThat(scheduler.getRunnable(), nullValue());
+        assertThat(scheduler.getMethod(), not(containsString("Asynchronously")));
     }
 }
