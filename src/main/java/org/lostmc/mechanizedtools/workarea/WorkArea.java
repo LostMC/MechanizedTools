@@ -12,6 +12,7 @@ public class WorkArea {
     private long maximumZ = Long.MIN_VALUE;
     private int minimumY;
     private int maximumY;
+    private String invalidReason;
 
     public boolean isValid() {
         return valid;
@@ -83,5 +84,13 @@ public class WorkArea {
 
     public void setMaximumY(int maximumY) {
         this.maximumY = maximumY;
+    }
+
+    public void setInvalidReason(String invalidReason) {
+        this.invalidReason = invalidReason;
+    }
+
+    public String getInvalidReason() {
+        return invalidReason;
     }
 }

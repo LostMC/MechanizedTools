@@ -102,7 +102,7 @@ public class MockBlockState implements BlockState {
 
     @Override
     public boolean update(boolean force) {
-        throw new UnsupportedOperationException();
+        return true;
     }
 
     @Override

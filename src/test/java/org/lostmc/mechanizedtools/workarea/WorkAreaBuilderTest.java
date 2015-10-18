@@ -3,10 +3,8 @@ package org.lostmc.mechanizedtools.workarea;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.BlockFace;
-import org.bukkit.material.Sign;
 import org.junit.Test;
 import org.lostmc.mctesting.MockBlock;
-import org.lostmc.mctesting.MockSign;
 
 import java.util.Arrays;
 import java.util.List;
@@ -19,6 +17,7 @@ import static org.junit.Assert.assertThat;
 public class WorkAreaBuilderTest {
     private static final Material ENGINE_BLOCK_MATERIAL = Material.IRON_BLOCK;
     private final WorkAreaBuilder builder = new WorkAreaBuilder();
+    private final WorkAreaTestHelper helper = new WorkAreaTestHelper();
     private MockBlock signBlock;
     private MockBlock engineBlock;
     private MockBlock supplyChest;
@@ -109,6 +108,7 @@ public class WorkAreaBuilderTest {
         WorkArea workArea = builder.build(signBlock);
 
         assertThat(workArea.isValid(), equalTo(false));
+        assertThat(workArea.getInvalidReason(), equalTo("Engine missing"));
     }
 
     @Test
@@ -120,6 +120,8 @@ public class WorkAreaBuilderTest {
         WorkArea workArea = builder.build(signBlock);
 
         assertThat(workArea.isValid(), equalTo(false));
+        assertThat(workArea.getInvalidReason(), equalTo("Chest missing"));
+
     }
 
     @Test
@@ -160,6 +162,7 @@ public class WorkAreaBuilderTest {
         WorkArea workArea = builder.build(signBlock);
 
         assertThat(workArea.isValid(), equalTo(false));
+        assertThat(workArea.getInvalidReason(), equalTo("Depth too high"));
     }
 
     @Test
@@ -170,6 +173,7 @@ public class WorkAreaBuilderTest {
         WorkArea workArea = builder.build(signBlock);
 
         assertThat(workArea.isValid(), equalTo(false));
+        assertThat(workArea.getInvalidReason(), equalTo("Depth too high"));
     }
 
     @Test
@@ -180,6 +184,7 @@ public class WorkAreaBuilderTest {
         WorkArea workArea = builder.build(signBlock);
 
         assertThat(workArea.isValid(), equalTo(false));
+        assertThat(workArea.getInvalidReason(), equalTo("Invalid depth"));
     }
 
     @Test
@@ -190,6 +195,7 @@ public class WorkAreaBuilderTest {
         WorkArea workArea = builder.build(signBlock);
 
         assertThat(workArea.isValid(), equalTo(false));
+        assertThat(workArea.getInvalidReason(), equalTo("Invalid depth"));
     }
 
     @Test
@@ -200,6 +206,8 @@ public class WorkAreaBuilderTest {
         WorkArea workArea = builder.build(signBlock);
 
         assertThat(workArea.isValid(), equalTo(false));
+        assertThat(workArea.getInvalidReason(), equalTo("Invalid height"));
+
     }
 
     @Test
@@ -244,16 +252,7 @@ public class WorkAreaBuilderTest {
 
     private void createSign(MockBlock[][][] array, int signI, int signJ, int signK, List<String> signLines) {
         signBlock = array[signI][signJ][signK];
-        signBlock.setType(Material.WALL_SIGN);
-        MockSign sign = new MockSign(signBlock);
-        signBlock.setState(sign);
-        Sign data = new Sign(Material.WALL_SIGN);
-        data.setFacingDirection(BlockFace.NORTH);
-        sign.setData(data);
-        int i = 0;
-        for (String line : signLines) {
-            sign.setLine(i++, line);
-        }
+        helper.createSignBlock(signBlock, BlockFace.NORTH, signLines);
     }
 
     private void createEngineBlock() {

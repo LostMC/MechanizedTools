@@ -1,7 +1,6 @@
 package org.lostmc.mctesting;
 
 import org.bukkit.BlockChangeDelegate;
-
 import org.bukkit.Chunk;
 import org.bukkit.ChunkSnapshot;
 import org.bukkit.Difficulty;
@@ -33,11 +32,14 @@ import org.bukkit.util.Vector;
 
 import java.io.File;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
 public class MockWorld implements World {
+    private Map<Location, Block> locationBlockMap = new HashMap<>();
     private int maxHeight;
 
     @Override
@@ -56,7 +58,11 @@ public class MockWorld implements World {
 
     @Override
     public Block getBlockAt(Location location) {
-        throw new UnsupportedOperationException();
+        return locationBlockMap.get(location);
+    }
+
+    public void putBlockAt(Location location, Block block) {
+        locationBlockMap.put(location, block);
     }
 
     @Override

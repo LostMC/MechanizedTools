@@ -23,7 +23,7 @@ public class WorkAreaStarter implements Runnable {
         if (workArea.isValid()) {
             scheduler.runTaskAsynchronously(plugin, new WorkAreaLaborer());
         } else {
-            scheduler.runTask(plugin, new WorkAreaSignUpdater());
+            scheduler.runTask(plugin, new WorkAreaSignUpdater(workArea));
         }
     }
 }

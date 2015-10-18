@@ -32,11 +32,13 @@ public class WorkAreaBuilder {
         Block engineBlock = signBlock.getRelative(face);
         if (isAnIronBlock(engineBlock)) {
             workArea.setValid(false);
+            workArea.setInvalidReason("Engine missing");
         }
 
         Block supplyChestBlock = engineBlock.getRelative(BlockFace.UP);
         if (isAChest(supplyChestBlock)) {
             workArea.setValid(false);
+            workArea.setInvalidReason("Chest missing");
         }
 
         workArea.setSupplyChestLocation(supplyChestBlock.getLocation());
@@ -54,16 +56,25 @@ public class WorkAreaBuilder {
             String[] split = sign.getLine(1).split("\\-");
             try {
                 workArea.setMinimumY(Integer.parseInt(split[0]));
-                if (split.length == 2) {
-                    workArea.setMaximumY(Integer.parseInt(split[1]));
-                } else {
-                    workArea.setMaximumY(signBlock.getWorld().getMaxHeight());
-                }
             } catch (NumberFormatException exception) {
                 workArea.setValid(false);
+                workArea.setInvalidReason("Invalid depth");
+                return;
+            }
+            if (split.length == 2) {
+                try {
+                    workArea.setMaximumY(Integer.parseInt(split[1]));
+                } catch (NumberFormatException exception) {
+                    workArea.setValid(false);
+                    workArea.setInvalidReason("Invalid height");
+                    return;
+                }
+            } else {
+                workArea.setMaximumY(signBlock.getWorld().getMaxHeight());
             }
             if (workArea.getMinimumY() > workArea.getMaximumY()) {
                 workArea.setValid(false);
+                workArea.setInvalidReason("Depth too high");
             }
         }
     }
