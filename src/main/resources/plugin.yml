@@ -1,0 +1,6 @@
+name: MechanizedTools
+version: 1.0.0-SNAPSHOT
+author: Feaelin <iain@iaindavis.name>
+description: Automate various grind-centric tasks
+
+main: org.lostmc.mechanizedtools.MechanizedTools
