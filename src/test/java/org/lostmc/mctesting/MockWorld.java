@@ -51,601 +51,602 @@ public class MockWorld implements World {
 
     @Override
     public Block getBlockAt(int x, int y, int z) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Block getBlockAt(Location location) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getBlockTypeIdAt(int x, int y, int z) {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getBlockTypeIdAt(Location location) {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getHighestBlockYAt(int x, int z) {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getHighestBlockYAt(Location location) {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Block getHighestBlockAt(int x, int z) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Block getHighestBlockAt(Location location) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Chunk getChunkAt(int x, int z) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Chunk getChunkAt(Location location) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Chunk getChunkAt(Block block) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean isChunkLoaded(Chunk chunk) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Chunk[] getLoadedChunks() {
-        return new Chunk[0];
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void loadChunk(Chunk chunk) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean isChunkLoaded(int x, int z) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean isChunkInUse(int x, int z) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void loadChunk(int x, int z) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean loadChunk(int x, int z, boolean generate) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean unloadChunk(Chunk chunk) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean unloadChunk(int x, int z) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean unloadChunk(int x, int z, boolean save) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean unloadChunk(int x, int z, boolean save, boolean safe) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean unloadChunkRequest(int x, int z) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean unloadChunkRequest(int x, int z, boolean safe) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean regenerateChunk(int x, int z) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean refreshChunk(int x, int z) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Item dropItem(Location location, ItemStack item) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Item dropItemNaturally(Location location, ItemStack item) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Arrow spawnArrow(Location location, Vector direction, float speed, float spread) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean generateTree(Location location, TreeType type) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean generateTree(Location loc, TreeType type, BlockChangeDelegate delegate) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Entity spawnEntity(Location loc, EntityType type) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public LivingEntity spawnCreature(Location loc, EntityType type) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
-    public LivingEntity spawnCreature(Location loc, CreatureType type) {
-        return null;
+    public LivingEntity spawnCreature(Location loc, @SuppressWarnings("deprecation") CreatureType type) {
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public LightningStrike strikeLightning(Location loc) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public LightningStrike strikeLightningEffect(Location loc) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public List<Entity> getEntities() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public List<LivingEntity> getLivingEntities() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
+    @SafeVarargs
     @Override
-    public <T extends Entity> Collection<T> getEntitiesByClass(Class<T>... classes) {
-        return null;
+    public final <T extends Entity> Collection<T> getEntitiesByClass(Class<T>... classes) {
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public <T extends Entity> Collection<T> getEntitiesByClass(Class<T> cls) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Collection<Entity> getEntitiesByClasses(Class<?>... classes) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public List<Player> getPlayers() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Collection<Entity> getNearbyEntities(Location location, double x, double y, double z) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public String getName() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public UUID getUID() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Location getSpawnLocation() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean setSpawnLocation(int x, int y, int z) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public long getTime() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setTime(long time) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public long getFullTime() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setFullTime(long time) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean hasStorm() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setStorm(boolean hasStorm) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getWeatherDuration() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setWeatherDuration(int duration) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean isThundering() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setThundering(boolean thundering) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getThunderDuration() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setThunderDuration(int duration) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean createExplosion(double x, double y, double z, float power) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean createExplosion(double x, double y, double z, float power, boolean setFire) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean createExplosion(double x, double y, double z, float power, boolean setFire, boolean breakBlocks) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean createExplosion(Location loc, float power) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean createExplosion(Location loc, float power, boolean setFire) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Environment getEnvironment() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public long getSeed() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean getPVP() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setPVP(boolean pvp) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public ChunkGenerator getGenerator() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void save() {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public List<BlockPopulator> getPopulators() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public <T extends Entity> T spawn(Location location, Class<T> clazz) throws IllegalArgumentException {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public FallingBlock spawnFallingBlock(Location location, Material material, byte data) throws IllegalArgumentException {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public FallingBlock spawnFallingBlock(Location location, int blockId, byte blockData) throws IllegalArgumentException {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void playEffect(Location location, Effect effect, int data) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void playEffect(Location location, Effect effect, int data, int radius) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public <T> void playEffect(Location location, Effect effect, T data) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public <T> void playEffect(Location location, Effect effect, T data, int radius) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public ChunkSnapshot getEmptyChunkSnapshot(int x, int z, boolean includeBiome, boolean includeBiomeTempRain) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setSpawnFlags(boolean allowMonsters, boolean allowAnimals) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean getAllowAnimals() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean getAllowMonsters() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Biome getBiome(int x, int z) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setBiome(int x, int z, Biome bio) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public double getTemperature(int x, int z) {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public double getHumidity(int x, int z) {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getSeaLevel() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean getKeepSpawnInMemory() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setKeepSpawnInMemory(boolean keepLoaded) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean isAutoSave() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setAutoSave(boolean value) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setDifficulty(Difficulty difficulty) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Difficulty getDifficulty() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public File getWorldFolder() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public WorldType getWorldType() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean canGenerateStructures() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public long getTicksPerAnimalSpawns() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setTicksPerAnimalSpawns(int ticksPerAnimalSpawns) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public long getTicksPerMonsterSpawns() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setTicksPerMonsterSpawns(int ticksPerMonsterSpawns) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getMonsterSpawnLimit() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setMonsterSpawnLimit(int limit) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getAnimalSpawnLimit() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setAnimalSpawnLimit(int limit) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getWaterAnimalSpawnLimit() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setWaterAnimalSpawnLimit(int limit) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getAmbientSpawnLimit() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setAmbientSpawnLimit(int limit) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void playSound(Location location, Sound sound, float volume, float pitch) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public String[] getGameRules() {
-        return new String[0];
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public String getGameRuleValue(String rule) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean setGameRuleValue(String rule, String value) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean isGameRule(String rule) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public WorldBorder getWorldBorder() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setMetadata(String metadataKey, MetadataValue newMetadataValue) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public List<MetadataValue> getMetadata(String metadataKey) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean hasMetadata(String metadataKey) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void removeMetadata(String metadataKey, Plugin owningPlugin) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void sendPluginMessage(Plugin source, String channel, byte[] message) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Set<String> getListeningPluginChannels() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 }

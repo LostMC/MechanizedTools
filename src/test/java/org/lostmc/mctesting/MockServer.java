@@ -63,17 +63,17 @@ public class MockServer implements Server {
 
     @Override
     public String getName() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public String getVersion() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public String getBukkitVersion() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -83,461 +83,462 @@ public class MockServer implements Server {
 
     @Override
     public Collection<? extends Player> getOnlinePlayers() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getMaxPlayers() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getPort() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getViewDistance() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public String getIp() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public String getServerName() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public String getServerId() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public String getWorldType() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean getGenerateStructures() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean getAllowEnd() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean getAllowNether() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean hasWhitelist() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setWhitelist(boolean value) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Set<OfflinePlayer> getWhitelistedPlayers() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void reloadWhitelist() {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int broadcastMessage(String message) {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public String getUpdateFolder() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public File getUpdateFolderFile() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public long getConnectionThrottle() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getTicksPerAnimalSpawns() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getTicksPerMonsterSpawns() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Player getPlayer(String name) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Player getPlayerExact(String name) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public List<Player> matchPlayer(String name) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Player getPlayer(UUID id) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public BukkitScheduler getScheduler() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public ServicesManager getServicesManager() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public List<World> getWorlds() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public World createWorld(WorldCreator creator) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean unloadWorld(String name, boolean save) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean unloadWorld(World world, boolean save) {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public World getWorld(String name) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public World getWorld(UUID uid) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public MapView getMap(short id) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public MapView createMap(World world) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void reload() {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Logger getLogger() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public PluginCommand getPluginCommand(String name) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void savePlayers() {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean dispatchCommand(CommandSender sender, String commandLine) throws CommandException {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void configureDbConfig(ServerConfig config) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public List<Recipe> getRecipesFor(ItemStack result) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Iterator<Recipe> recipeIterator() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void clearRecipes() {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void resetRecipes() {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Map<String, String[]> getCommandAliases() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getSpawnRadius() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setSpawnRadius(int value) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean getOnlineMode() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean getAllowFlight() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean isHardcore() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean useExactLoginLocation() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void shutdown() {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int broadcast(String message, String permission) {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public OfflinePlayer getOfflinePlayer(String name) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public OfflinePlayer getOfflinePlayer(UUID id) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Set<String> getIPBans() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void banIP(String address) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void unbanIP(String address) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Set<OfflinePlayer> getBannedPlayers() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public BanList getBanList(BanList.Type type) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Set<OfflinePlayer> getOperators() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public GameMode getDefaultGameMode() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setDefaultGameMode(GameMode mode) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public ConsoleCommandSender getConsoleSender() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public File getWorldContainer() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public OfflinePlayer[] getOfflinePlayers() {
-        return new OfflinePlayer[0];
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Messenger getMessenger() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public HelpMap getHelpMap() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Inventory createInventory(InventoryHolder owner, InventoryType type) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Inventory createInventory(InventoryHolder owner, InventoryType type, String title) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Inventory createInventory(InventoryHolder owner, int size) throws IllegalArgumentException {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Inventory createInventory(InventoryHolder owner, int size, String title) throws IllegalArgumentException {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getMonsterSpawnLimit() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getAnimalSpawnLimit() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getWaterAnimalSpawnLimit() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getAmbientSpawnLimit() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean isPrimaryThread() {
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public String getMotd() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public String getShutdownMessage() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Warning.WarningState getWarningState() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public ItemFactory getItemFactory() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public ScoreboardManager getScoreboardManager() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public CachedServerIcon getServerIcon() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
-    public CachedServerIcon loadServerIcon(File file) throws IllegalArgumentException, Exception {
-        return null;
+    public CachedServerIcon loadServerIcon(File file) throws Exception {
+        throw new UnsupportedOperationException();
     }
 
     @Override
-    public CachedServerIcon loadServerIcon(BufferedImage image) throws IllegalArgumentException, Exception {
-        return null;
+    public CachedServerIcon loadServerIcon(BufferedImage image) throws Exception {
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void setIdleTimeout(int threshold) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public int getIdleTimeout() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public ChunkGenerator.ChunkData createChunkData(World world) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public UnsafeValues getUnsafe() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void sendPluginMessage(Plugin source, String channel, byte[] message) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Set<String> getListeningPluginChannels() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 }
