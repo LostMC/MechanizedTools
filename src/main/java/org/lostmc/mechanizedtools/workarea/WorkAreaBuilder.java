@@ -51,23 +51,18 @@ public class WorkAreaBuilder {
         BlockState state = signBlock.getState();
         if (state.getType() == Material.WALL_SIGN) {
             Sign sign = (Sign) state;
-            String line = sign.getLine(1);
-            String minimum = line;
+            String[] split = sign.getLine(1).split("\\-");
             try {
-                if (line.contains("-")) {
-                    String[] split = line.split("\\-");
-                    minimum = split[0];
-                    int maximumY = Integer.parseInt(split[1]);
-                    workArea.setMaximumY(maximumY);
+                workArea.setMinimumY(Integer.parseInt(split[0]));
+                if (split.length == 2) {
+                    workArea.setMaximumY(Integer.parseInt(split[1]));
                 } else {
                     workArea.setMaximumY(signBlock.getWorld().getMaxHeight());
                 }
-                int minimumY = Integer.parseInt(minimum);
-                workArea.setMinimumY(minimumY);
-                if (workArea.getMinimumY() > workArea.getMaximumY()) {
-                    workArea.setValid(false);
-                }
             } catch (NumberFormatException exception) {
+                workArea.setValid(false);
+            }
+            if (workArea.getMinimumY() > workArea.getMaximumY()) {
                 workArea.setValid(false);
             }
         }
