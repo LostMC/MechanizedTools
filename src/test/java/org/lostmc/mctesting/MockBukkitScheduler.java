@@ -141,6 +141,7 @@ public class MockBukkitScheduler implements BukkitScheduler {
 
     @Override
     public BukkitTask runTask(Plugin plugin, Runnable task) throws IllegalArgumentException {
+        capture(plugin, task, "runTask");
         return null;
     }
 

@@ -28,7 +28,7 @@ public class SignInteractionListener implements Listener {
         Block block = event.getClickedBlock();
         BlockState state = block.getState();
         if (isRightHandClick(event) && wallSignWasClicked(state) && wallSignProperlyLabeled(state)) {
-            scheduler.runTaskAsynchronously(plugin, new WorkAreaStarter(new WorkAreaBuilder(), block));
+            scheduler.runTaskAsynchronously(plugin, new WorkAreaStarter(new WorkAreaBuilder(), block, scheduler, plugin));
         }
     }
 
