@@ -208,7 +208,7 @@ public class MockServer implements Server {
 
     @Override
     public BukkitScheduler getScheduler() {
-        throw new UnsupportedOperationException();
+        return new MockBukkitScheduler();
     }
 
     @Override
