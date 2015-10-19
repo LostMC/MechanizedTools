@@ -226,43 +226,9 @@ public class WorkAreaBuilderTest {
     }
 
     private void insertValidAreaIntoArray(MockBlock[][][] array, int signI, int signJ, int signK, List<String> signLines) {
-        createSign(array, signI, signJ, signK, signLines);
-        createEngineBlock();
-        createSupplyChest();
-        addRedstone();
-
-    }
-
-    private void addRedstone() {
-        MockBlock rt = (MockBlock) engineBlock.getRelative(BlockFace.WEST);
-        rt.setType(Material.REDSTONE_WIRE);
-        rt = (MockBlock) rt.getRelative(BlockFace.SOUTH);
-        rt.setType(Material.REDSTONE_WIRE);
-        rt = (MockBlock) rt.getRelative(BlockFace.SOUTH);
-        rt.setType(Material.REDSTONE_WIRE);
-        rt = (MockBlock) rt.getRelative(BlockFace.EAST);
-        rt.setType(Material.REDSTONE_WIRE);
-        rt = (MockBlock) rt.getRelative(BlockFace.EAST);
-        rt.setType(Material.REDSTONE_WIRE);
-        rt = (MockBlock) rt.getRelative(BlockFace.NORTH);
-        rt.setType(Material.REDSTONE_WIRE);
-        rt = (MockBlock) rt.getRelative(BlockFace.NORTH);
-        rt.setType(Material.REDSTONE_WIRE);
-    }
-
-    private void createSign(MockBlock[][][] array, int signI, int signJ, int signK, List<String> signLines) {
         signBlock = array[signI][signJ][signK];
-        helper.createSignBlock(signBlock, BlockFace.NORTH, signLines);
-    }
-
-    private void createEngineBlock() {
         engineBlock = (MockBlock) signBlock.getRelative(BlockFace.SOUTH);
-        engineBlock.setType(ENGINE_BLOCK_MATERIAL);
-    }
-
-    private void createSupplyChest() {
         supplyChest = (MockBlock) engineBlock.getRelative(BlockFace.UP);
-        supplyChest.setType(Material.CHEST);
+        helper.createValidArea(signBlock, engineBlock, supplyChest, BlockFace.NORTH, signLines);
     }
-
 }
