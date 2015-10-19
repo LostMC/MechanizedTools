@@ -15,7 +15,6 @@ import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertThat;
 
 public class WorkAreaBuilderTest {
-    private static final Material ENGINE_BLOCK_MATERIAL = Material.IRON_BLOCK;
     private final WorkAreaBuilder builder = new WorkAreaBuilder();
     private final WorkAreaTestHelper helper = new WorkAreaTestHelper();
     private MockBlock signBlock;

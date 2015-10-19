@@ -160,7 +160,9 @@ public class MockBlock implements Block {
 
     @Override
     public Location getLocation() {
-        return new Location(getWorld(), x, y, z);
+        Location location = new Location(getWorld(), x, y, z);
+        ((MockWorld)getWorld()).putBlockAt(location, this);
+        return location;
     }
 
     @Override

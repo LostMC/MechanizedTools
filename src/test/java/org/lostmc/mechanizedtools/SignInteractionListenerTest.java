@@ -40,6 +40,7 @@ public class SignInteractionListenerTest {
         MockSign sign = new MockSign(signBlock);
         signBlock.setState(sign);
         sign.setLine(0, "excavator");
+        sign.update(true);
 
         PlayerInteractEvent event = new PlayerInteractEvent(player, Action.RIGHT_CLICK_BLOCK, null, signBlock, BlockFace.DOWN);
         listener.playerInteract(event);
@@ -55,6 +56,7 @@ public class SignInteractionListenerTest {
         MockSign sign = new MockSign(signBlock);
         signBlock.setState(sign);
         sign.setLine(0, "exCavAtor");
+        sign.update(true);
 
         PlayerInteractEvent event = new PlayerInteractEvent(player, Action.RIGHT_CLICK_BLOCK, null, signBlock, BlockFace.DOWN);
         listener.playerInteract(event);
@@ -70,6 +72,7 @@ public class SignInteractionListenerTest {
         MockSign sign = new MockSign(signBlock);
         signBlock.setState(sign);
         sign.setLine(0, "excavator");
+        sign.update(true);
 
         for (Action action : Action.values()) {
             if (action == Action.RIGHT_CLICK_BLOCK) {
@@ -89,6 +92,7 @@ public class SignInteractionListenerTest {
         MockSign sign = new MockSign(signBlock);
         signBlock.setState(sign);
         sign.setLine(0, "excavator");
+        sign.update(true);
 
         PlayerInteractEvent event = new PlayerInteractEvent(player, Action.RIGHT_CLICK_BLOCK, null, signBlock, BlockFace.DOWN);
 
@@ -105,6 +109,7 @@ public class SignInteractionListenerTest {
         MockSign sign = new MockSign(signBlock);
         signBlock.setState(sign);
         sign.setLine(0, RandomStringUtils.randomAlphabetic(13));
+        sign.update(true);
 
         PlayerInteractEvent event = new PlayerInteractEvent(player, Action.RIGHT_CLICK_BLOCK, null, signBlock, BlockFace.DOWN);
 
