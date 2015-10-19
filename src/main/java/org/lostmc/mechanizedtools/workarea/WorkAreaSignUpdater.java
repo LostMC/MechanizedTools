@@ -18,6 +18,6 @@ public class WorkAreaSignUpdater implements Runnable {
         Sign sign = (Sign)block.getState();
         sign.setLine(2, "Invalid:");
         sign.setLine(3, workArea.getInvalidReason());
-//        sign.update(true);
+        sign.update(true);
     }
 }
