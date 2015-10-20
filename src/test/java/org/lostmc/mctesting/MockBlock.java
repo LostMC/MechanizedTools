@@ -33,19 +33,22 @@ public class MockBlock implements Block {
         this.state = new MockBlockState(this);
     }
 
-    public static MockBlock[][][] createBlockArray(int width, int length, int height, int baseHeight) {
+    public static MockBlock[][][] createBlockArray(int width, int length) {
         int baseWidth = -(width / 2);
         int baseLength = -(length / 2);
         MockWorld world = new MockWorld();
-        world.setMaxHeight(height);
-        blockArray = new MockBlock[width][length][height];
-        for (int k = 0; k < height; k++) {
+        world.setMaxHeight(128);
+        blockArray = new MockBlock[width][length][128];
+        for (int k = 0; k < 128; k++) {
             for (int i = 0; i < width; i++) {
                 for (int j = 0; j < length; j++) {
                     MockBlock block = new MockBlock(Material.AIR);
+                    if (k < 64) {
+                        block = new MockBlock(Material.DIRT);
+                    }
                     block.setWorld(world);
                     block.x = baseWidth + i;
-                    block.y = baseHeight + k;
+                    block.y = k;
                     block.z = baseLength + j;
                     block.i = i;
                     block.j = j;

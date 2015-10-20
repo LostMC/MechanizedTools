@@ -8,7 +8,6 @@ import org.lostmc.mctesting.MockBlock;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
@@ -23,7 +22,7 @@ public class WorkAreaBuilderTest {
 
     @Test
     public void validArea() {
-        MockBlock[][][] array = MockBlock.createBlockArray(15, 15, 128, 63);
+        MockBlock[][][] array = MockBlock.createBlockArray(15, 15);
         insertValidAreaIntoArray(array, 3, 1, 0);
         WorkArea workArea = builder.build(signBlock);
 
@@ -32,8 +31,8 @@ public class WorkAreaBuilderTest {
 
     @Test
     public void signLocationSet() {
-        MockBlock[][][] array = MockBlock.createBlockArray(15, 15, 2, 63);
-        insertValidAreaIntoArray(array, 3, 1, 0);
+        MockBlock[][][] array = MockBlock.createBlockArray(15, 15);
+        insertValidAreaIntoArray(array, 3, 1, 63);
         WorkArea workArea = builder.build(signBlock);
 
         Location location = workArea.getSignBlockLocation();
@@ -46,8 +45,8 @@ public class WorkAreaBuilderTest {
 
     @Test
     public void supplyChestLocationSet() {
-        MockBlock[][][] array = MockBlock.createBlockArray(15, 15, 2, 63);
-        insertValidAreaIntoArray(array, 3, 1, 0);
+        MockBlock[][][] array = MockBlock.createBlockArray(15, 15);
+        insertValidAreaIntoArray(array, 3, 1, 63);
         WorkArea workArea = builder.build(signBlock);
 
         Location location = workArea.getSupplyChestLocation();
@@ -60,7 +59,7 @@ public class WorkAreaBuilderTest {
 
     @Test
     public void setXZMinimums() {
-        MockBlock[][][] array = MockBlock.createBlockArray(15, 15, 2, 63);
+        MockBlock[][][] array = MockBlock.createBlockArray(15, 15);
         insertValidAreaIntoArray(array, 3, 1, 0);
         WorkArea workArea = builder.build(signBlock);
 
@@ -70,7 +69,7 @@ public class WorkAreaBuilderTest {
 
     @Test
     public void setXZMaximums() {
-        MockBlock[][][] array = MockBlock.createBlockArray(15, 15, 2, 63);
+        MockBlock[][][] array = MockBlock.createBlockArray(15, 15);
         insertValidAreaIntoArray(array, 3, 1, 0);
         WorkArea workArea = builder.build(signBlock);
 
@@ -80,7 +79,7 @@ public class WorkAreaBuilderTest {
 
     @Test
     public void setXZMinimumsWhenPositive() {
-        MockBlock[][][] array = MockBlock.createBlockArray(15, 15, 2, 63);
+        MockBlock[][][] array = MockBlock.createBlockArray(15, 15);
         insertValidAreaIntoArray(array, 9, 7, 0);
         WorkArea workArea = builder.build(signBlock);
 
@@ -90,7 +89,7 @@ public class WorkAreaBuilderTest {
 
     @Test
     public void setXZMaximumsWhenPositive() {
-        MockBlock[][][] array = MockBlock.createBlockArray(15, 15, 2, 63);
+        MockBlock[][][] array = MockBlock.createBlockArray(15, 15);
         insertValidAreaIntoArray(array, 7, 7, 0);
         WorkArea workArea = builder.build(signBlock);
 
@@ -100,7 +99,7 @@ public class WorkAreaBuilderTest {
 
     @Test
     public void whenSignIsNotAttachedToAnIronBlock() {
-        MockBlock[][][] array = MockBlock.createBlockArray(15, 15, 2, 63);
+        MockBlock[][][] array = MockBlock.createBlockArray(15, 15);
         insertValidAreaIntoArray(array, 3, 1, 0);
         engineBlock.setType(Material.COBBLESTONE);
 
@@ -112,7 +111,7 @@ public class WorkAreaBuilderTest {
 
     @Test
     public void whenSupplyChestIsNotAboveEngineBlock() {
-        MockBlock[][][] array = MockBlock.createBlockArray(15, 15, 2, 63);
+        MockBlock[][][] array = MockBlock.createBlockArray(15, 15);
         insertValidAreaIntoArray(array, 3, 1, 0);
         supplyChest.setType(Material.AIR);
 
@@ -125,7 +124,7 @@ public class WorkAreaBuilderTest {
 
     @Test
     public void setMinimumY() {
-        MockBlock[][][] array = MockBlock.createBlockArray(15, 15, 2, 63);
+        MockBlock[][][] array = MockBlock.createBlockArray(15, 15);
         insertValidAreaIntoArray(array, 3, 1, 0);
 
         WorkArea workArea = builder.build(signBlock);
@@ -135,7 +134,7 @@ public class WorkAreaBuilderTest {
 
     @Test
     public void setMinimumYViaRange() {
-        MockBlock[][][] array = MockBlock.createBlockArray(15, 15, 2, 63);
+        MockBlock[][][] array = MockBlock.createBlockArray(15, 15);
         insertValidAreaIntoArray(array, 3, 1, 0, Arrays.asList("Excavator", "60-65"));
 
         WorkArea workArea = builder.build(signBlock);
@@ -145,7 +144,7 @@ public class WorkAreaBuilderTest {
 
     @Test
     public void setMaximumYViaRange() {
-        MockBlock[][][] array = MockBlock.createBlockArray(15, 15, 2, 63);
+        MockBlock[][][] array = MockBlock.createBlockArray(15, 15);
         insertValidAreaIntoArray(array, 3, 1, 0, Arrays.asList("Excavator", "60-65"));
 
         WorkArea workArea = builder.build(signBlock);
@@ -155,7 +154,7 @@ public class WorkAreaBuilderTest {
 
     @Test
     public void invalidRangeByOrder() {
-        MockBlock[][][] array = MockBlock.createBlockArray(15, 15, 2, 63);
+        MockBlock[][][] array = MockBlock.createBlockArray(15, 15);
         insertValidAreaIntoArray(array, 3, 1, 0, Arrays.asList("Excavator", "65-60"));
 
         WorkArea workArea = builder.build(signBlock);
@@ -166,7 +165,7 @@ public class WorkAreaBuilderTest {
 
     @Test
     public void invalidMinimumYByHeight() {
-        MockBlock[][][] array = MockBlock.createBlockArray(15, 15, 128, 63);
+        MockBlock[][][] array = MockBlock.createBlockArray(15, 15);
         insertValidAreaIntoArray(array, 3, 1, 0, Arrays.asList("Excavator", "129"));
 
         WorkArea workArea = builder.build(signBlock);
@@ -177,7 +176,7 @@ public class WorkAreaBuilderTest {
 
     @Test
     public void invalidMinimumYByContent() {
-        MockBlock[][][] array = MockBlock.createBlockArray(15, 15, 2, 63);
+        MockBlock[][][] array = MockBlock.createBlockArray(15, 15);
         insertValidAreaIntoArray(array, 3, 1, 0, Arrays.asList("Excavator", "aa"));
 
         WorkArea workArea = builder.build(signBlock);
@@ -188,7 +187,7 @@ public class WorkAreaBuilderTest {
 
     @Test
     public void invalidMinimumYInRangeByContent() {
-        MockBlock[][][] array = MockBlock.createBlockArray(15, 15, 2, 63);
+        MockBlock[][][] array = MockBlock.createBlockArray(15, 15);
         insertValidAreaIntoArray(array, 3, 1, 0, Arrays.asList("Excavator", "aa-60"));
 
         WorkArea workArea = builder.build(signBlock);
@@ -199,7 +198,7 @@ public class WorkAreaBuilderTest {
 
     @Test
     public void invalidMaximumYInRangeByContent() {
-        MockBlock[][][] array = MockBlock.createBlockArray(15, 15, 2, 63);
+        MockBlock[][][] array = MockBlock.createBlockArray(15, 15);
         insertValidAreaIntoArray(array, 3, 1, 0, Arrays.asList("Excavator", "60-aa"));
 
         WorkArea workArea = builder.build(signBlock);
@@ -211,13 +210,12 @@ public class WorkAreaBuilderTest {
 
     @Test
     public void setMaximumY() {
-        int height = new Random().nextInt(128) + 128;
-        MockBlock[][][] array = MockBlock.createBlockArray(15, 15, height, 63);
+        MockBlock[][][] array = MockBlock.createBlockArray(15, 15);
         insertValidAreaIntoArray(array, 3, 1, 0);
 
         WorkArea workArea = builder.build(signBlock);
 
-        assertThat(workArea.getMaximumY(), equalTo(height));
+        assertThat(workArea.getMaximumY(), equalTo(128));
     }
 
     private void insertValidAreaIntoArray(MockBlock[][][] array, int signI, int signJ, int signK) {

@@ -22,7 +22,7 @@ public class WorkAreaLaborerTest {
 
     @Test
     public void startMiningTask() {
-        MockBlock[][][] array = MockBlock.createBlockArray(20, 20, 128, 0);
+        MockBlock[][][] array = MockBlock.createBlockArray(20, 20);
         MockBlock signBlock = array[3][1][64];
         MockBlock engineBlock = (MockBlock) signBlock.getRelative(BlockFace.SOUTH);
         MockBlock chestBlock = (MockBlock) engineBlock.getRelative(BlockFace.UP);
