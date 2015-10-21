@@ -34,7 +34,7 @@ public class WorkAreaTestHelper {
         createValidArea(signBlock, engineBlock, supplyChest, BlockFace.NORTH, Arrays.asList(lines));
     }
 
-    public void createValidArea(MockBlock signBlock, MockBlock engineBlock, MockBlock chestBlock, BlockFace signFacing, List<String> signLines) {
+    private void createValidArea(MockBlock signBlock, MockBlock engineBlock, MockBlock chestBlock, BlockFace signFacing, List<String> signLines) {
         createSignBlock(signBlock, signFacing, signLines);
         createEngineBlock(engineBlock);
         createSupplyChest(chestBlock);
