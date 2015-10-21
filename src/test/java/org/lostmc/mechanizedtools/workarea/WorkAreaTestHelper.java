@@ -13,7 +13,7 @@ public class WorkAreaTestHelper {
         createSignBlock(signBlock, signFacing, signLines);
         createEngineBlock(engineBlock);
         createSupplyChest(chestBlock);
-        addRedstone(engineBlock);
+        addRedstone2(engineBlock);
     }
 
     public void createSignBlock(MockBlock block, BlockFace facing, List<String> lines) {
@@ -58,4 +58,49 @@ public class WorkAreaTestHelper {
         rt.setType(Material.REDSTONE_WIRE);
     }
 
+    private void addRedstone2(MockBlock engineBlock) {
+        MockBlock block = setNextBlock(engineBlock, BlockFace.WEST);
+        block = setNextBlock(block, BlockFace.WEST);
+        block = setNextBlock(block, BlockFace.NORTH);
+        block = setNextBlock(block, BlockFace.NORTH);
+        block = setNextBlock(block, BlockFace.WEST);
+        block = setNextBlock(block, BlockFace.WEST);
+        block = setNextBlock(block, BlockFace.SOUTH);
+        block = setNextBlock(block, BlockFace.SOUTH);
+        block = setNextBlock(block, BlockFace.SOUTH);
+        block = setNextBlock(block, BlockFace.WEST);
+        block = setNextBlock(block, BlockFace.WEST);
+        block = setNextBlock(block, BlockFace.SOUTH);
+        block = setNextBlock(block, BlockFace.SOUTH);
+        block = setNextBlock(block, BlockFace.SOUTH);
+        block = setNextBlock(block, BlockFace.EAST);
+        block = setNextBlock(block, BlockFace.EAST);
+        block = setNextBlock(block, BlockFace.EAST);
+        block = setNextBlock(block, BlockFace.EAST);
+        block = setNextBlock(block, BlockFace.SOUTH);
+        block = setNextBlock(block, BlockFace.SOUTH);
+        block = setNextBlock(block, BlockFace.SOUTH);
+        block = setNextBlock(block, BlockFace.EAST);
+        block = setNextBlock(block, BlockFace.EAST);
+        block = setNextBlock(block, BlockFace.EAST);
+        block = setNextBlock(block, BlockFace.NORTH);
+        block = setNextBlock(block, BlockFace.NORTH);
+        block = setNextBlock(block, BlockFace.NORTH);
+        block = setNextBlock(block, BlockFace.NORTH);
+        block = setNextBlock(block, BlockFace.NORTH);
+        block = setNextBlock(block, BlockFace.EAST);
+        block = setNextBlock(block, BlockFace.EAST);
+        block = setNextBlock(block, BlockFace.NORTH);
+        block = setNextBlock(block, BlockFace.NORTH);
+        block = setNextBlock(block, BlockFace.NORTH);
+        block = setNextBlock(block, BlockFace.WEST);
+        block = setNextBlock(block, BlockFace.WEST);
+        setNextBlock(block, BlockFace.SOUTH);
+    }
+
+    private MockBlock setNextBlock(MockBlock block, BlockFace face) {
+        MockBlock newBlock = (MockBlock) block.getRelative(face);
+        newBlock.setType(Material.REDSTONE_WIRE);
+        return newBlock;
+    }
 }

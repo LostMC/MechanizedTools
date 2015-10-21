@@ -61,6 +61,11 @@ public class MockBlock implements Block {
     }
 
     @Override
+    public String toString() {
+        return "(" + getX() + ", " + getY() + ", " + getZ() + "): " + material;
+    }
+
+    @Override
     public int getX() {
         return x;
     }

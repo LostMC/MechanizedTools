@@ -1,6 +1,7 @@
 package org.lostmc.mechanizedtools.workarea;
 
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -24,6 +25,9 @@ public class WorkAreaLaborer implements Runnable {
         Block relative = block.getRelative(BlockFace.SOUTH);
         Block relative1 = relative.getRelative(BlockFace.SOUTH);
         Block blockToMine = relative1.getRelative(BlockFace.DOWN);
+        if (blockToMine.getType() == Material.AIR) {
+            blockToMine = blockToMine.getRelative(BlockFace.DOWN);
+        }
         scheduler.runTask(plugin, new WorkAreaBlockMiner(blockToMine));
     }
 }
