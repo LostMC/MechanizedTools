@@ -6,14 +6,39 @@ import org.bukkit.material.Sign;
 import org.lostmc.mctesting.MockBlock;
 import org.lostmc.mctesting.MockSign;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class WorkAreaTestHelper {
+    private MockBlock signBlock;
+    private MockBlock engineBlock;
+    private MockBlock supplyChest;
+
+    public void createValidArea() {
+        createValidArea("Excavator", "56");
+    }
+
+    public void createValidArea(int i, int j, int size) {
+        createValidArea(i, j, size, "Excavator", "56");
+    }
+
+    public void createValidArea(String... lines) {
+        createValidArea(8, 2, 20, lines);
+    }
+
+    private void createValidArea(int i, int j, int size, String... lines) {
+        MockBlock[][][] array = MockBlock.createBlockArray(size, size);
+        signBlock = array[i][j][64];
+        engineBlock = (MockBlock) signBlock.getRelative(BlockFace.SOUTH);
+        supplyChest = (MockBlock) engineBlock.getRelative(BlockFace.UP);
+        createValidArea(signBlock, engineBlock, supplyChest, BlockFace.NORTH, Arrays.asList(lines));
+    }
+
     public void createValidArea(MockBlock signBlock, MockBlock engineBlock, MockBlock chestBlock, BlockFace signFacing, List<String> signLines) {
         createSignBlock(signBlock, signFacing, signLines);
         createEngineBlock(engineBlock);
         createSupplyChest(chestBlock);
-        addRedstone2(engineBlock);
+        addRedstone(engineBlock);
     }
 
     public void createSignBlock(MockBlock block, BlockFace facing, List<String> lines) {
@@ -42,23 +67,6 @@ public class WorkAreaTestHelper {
     }
 
     private void addRedstone(MockBlock engineBlock) {
-        MockBlock rt = (MockBlock) engineBlock.getRelative(BlockFace.WEST);
-        rt.setType(Material.REDSTONE_WIRE);
-        rt = (MockBlock) rt.getRelative(BlockFace.SOUTH);
-        rt.setType(Material.REDSTONE_WIRE);
-        rt = (MockBlock) rt.getRelative(BlockFace.SOUTH);
-        rt.setType(Material.REDSTONE_WIRE);
-        rt = (MockBlock) rt.getRelative(BlockFace.EAST);
-        rt.setType(Material.REDSTONE_WIRE);
-        rt = (MockBlock) rt.getRelative(BlockFace.EAST);
-        rt.setType(Material.REDSTONE_WIRE);
-        rt = (MockBlock) rt.getRelative(BlockFace.NORTH);
-        rt.setType(Material.REDSTONE_WIRE);
-        rt = (MockBlock) rt.getRelative(BlockFace.NORTH);
-        rt.setType(Material.REDSTONE_WIRE);
-    }
-
-    private void addRedstone2(MockBlock engineBlock) {
         MockBlock block = setNextBlock(engineBlock, BlockFace.WEST);
         block = setNextBlock(block, BlockFace.WEST);
         block = setNextBlock(block, BlockFace.NORTH);
@@ -102,5 +110,17 @@ public class WorkAreaTestHelper {
         MockBlock newBlock = (MockBlock) block.getRelative(face);
         newBlock.setType(Material.REDSTONE_WIRE);
         return newBlock;
+    }
+
+    public MockBlock getSignBlock() {
+        return signBlock;
+    }
+
+    public MockBlock getEngineBlock() {
+        return engineBlock;
+    }
+
+    public MockBlock getSupplyChest() {
+        return supplyChest;
     }
 }

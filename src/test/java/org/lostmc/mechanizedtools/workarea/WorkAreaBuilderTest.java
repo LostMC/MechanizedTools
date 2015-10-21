@@ -2,11 +2,7 @@ package org.lostmc.mechanizedtools.workarea;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.block.BlockFace;
 import org.junit.Test;
-import org.lostmc.mctesting.MockBlock;
-
-import java.util.Arrays;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
@@ -15,22 +11,19 @@ import static org.junit.Assert.assertThat;
 public class WorkAreaBuilderTest {
     private final WorkAreaBuilder builder = new WorkAreaBuilder();
     private final WorkAreaTestHelper helper = new WorkAreaTestHelper();
-    private MockBlock signBlock;
-    private MockBlock engineBlock;
-    private MockBlock supplyChest;
 
     @Test
     public void validArea() {
-        insertValidAreaIntoArray();
-        WorkArea workArea = builder.build(signBlock);
+        helper.createValidArea();
+        WorkArea workArea = builder.build(helper.getSignBlock());
 
         assertThat(workArea.getInvalidReason(), workArea.isValid(), equalTo(true));
     }
 
     @Test
     public void signLocationSet() {
-        insertValidAreaIntoArray();
-        WorkArea workArea = builder.build(signBlock);
+        helper.createValidArea();
+        WorkArea workArea = builder.build(helper.getSignBlock());
 
         Location location = workArea.getSignBlockLocation();
 
@@ -42,8 +35,8 @@ public class WorkAreaBuilderTest {
 
     @Test
     public void supplyChestLocationSet() {
-        insertValidAreaIntoArray();
-        WorkArea workArea = builder.build(signBlock);
+        helper.createValidArea();
+        WorkArea workArea = builder.build(helper.getSignBlock());
 
         Location location = workArea.getSupplyChestLocation();
 
@@ -55,8 +48,8 @@ public class WorkAreaBuilderTest {
 
     @Test
     public void setXZMinimums() {
-        insertValidAreaIntoArray();
-        WorkArea workArea = builder.build(signBlock);
+        helper.createValidArea();
+        WorkArea workArea = builder.build(helper.getSignBlock());
 
         assertThat(workArea.getMinimumX(), equalTo(-8L));
         assertThat(workArea.getMinimumZ(), equalTo(-9L));
@@ -64,8 +57,8 @@ public class WorkAreaBuilderTest {
 
     @Test
     public void setXZMaximums() {
-        insertValidAreaIntoArray();
-        WorkArea workArea = builder.build(signBlock);
+        helper.createValidArea();
+        WorkArea workArea = builder.build(helper.getSignBlock());
 
         assertThat(workArea.getMaximumX(), equalTo(1L));
         assertThat(workArea.getMaximumZ(), equalTo(0L));
@@ -73,8 +66,8 @@ public class WorkAreaBuilderTest {
 
     @Test
     public void setXZMinimumsWhenPositive() {
-        insertValidAreaIntoArray(19, 15, 25);
-        WorkArea workArea = builder.build(signBlock);
+        helper.createValidArea(19, 15, 25);
+        WorkArea workArea = builder.build(helper.getSignBlock());
 
         assertThat(workArea.getMinimumX(), equalTo(1L));
         assertThat(workArea.getMinimumZ(), equalTo(2L));
@@ -82,8 +75,8 @@ public class WorkAreaBuilderTest {
 
     @Test
     public void setXZMaximumsWhenPositive() {
-        insertValidAreaIntoArray(19, 15, 25);
-        WorkArea workArea = builder.build(signBlock);
+        helper.createValidArea(19, 15, 25);
+        WorkArea workArea = builder.build(helper.getSignBlock());
 
         assertThat(workArea.getMaximumX(), equalTo(10L));
         assertThat(workArea.getMaximumZ(), equalTo(11L));
@@ -91,10 +84,10 @@ public class WorkAreaBuilderTest {
 
     @Test
     public void whenSignIsNotAttachedToAnIronBlock() {
-        insertValidAreaIntoArray();
-        engineBlock.setType(Material.COBBLESTONE);
+        helper.createValidArea();
+        helper.getEngineBlock().setType(Material.COBBLESTONE);
 
-        WorkArea workArea = builder.build(signBlock);
+        WorkArea workArea = builder.build(helper.getSignBlock());
 
         assertThat(workArea.isValid(), equalTo(false));
         assertThat(workArea.getInvalidReason(), equalTo("Engine missing"));
@@ -102,10 +95,10 @@ public class WorkAreaBuilderTest {
 
     @Test
     public void whenSupplyChestIsNotAboveEngineBlock() {
-        insertValidAreaIntoArray();
-        supplyChest.setType(Material.AIR);
+        helper.createValidArea();
+        helper.getSupplyChest().setType(Material.AIR);
 
-        WorkArea workArea = builder.build(signBlock);
+        WorkArea workArea = builder.build(helper.getSignBlock());
 
         assertThat(workArea.isValid(), equalTo(false));
         assertThat(workArea.getInvalidReason(), equalTo("Chest missing"));
@@ -114,36 +107,36 @@ public class WorkAreaBuilderTest {
 
     @Test
     public void setMinimumY() {
-        insertValidAreaIntoArray();
+        helper.createValidArea();
 
-        WorkArea workArea = builder.build(signBlock);
+        WorkArea workArea = builder.build(helper.getSignBlock());
 
         assertThat(workArea.getMinimumY(), equalTo(56));
     }
 
     @Test
     public void setMinimumYViaRange() {
-        insertValidAreaIntoArray("Excavator", "60-65");
+        helper.createValidArea("Excavator", "60-65");
 
-        WorkArea workArea = builder.build(signBlock);
+        WorkArea workArea = builder.build(helper.getSignBlock());
 
         assertThat(workArea.getMinimumY(), equalTo(60));
     }
 
     @Test
     public void setMaximumYViaRange() {
-        insertValidAreaIntoArray("Excavator", "60-65");
+        helper.createValidArea("Excavator", "60-65");
 
-        WorkArea workArea = builder.build(signBlock);
+        WorkArea workArea = builder.build(helper.getSignBlock());
 
         assertThat(workArea.getMaximumY(), equalTo(65));
     }
 
     @Test
     public void invalidRangeByOrder() {
-        insertValidAreaIntoArray("Excavator", "65-60");
+        helper.createValidArea("Excavator", "65-60");
 
-        WorkArea workArea = builder.build(signBlock);
+        WorkArea workArea = builder.build(helper.getSignBlock());
 
         assertThat(workArea.isValid(), equalTo(false));
         assertThat(workArea.getInvalidReason(), equalTo("Depth too high"));
@@ -151,9 +144,9 @@ public class WorkAreaBuilderTest {
 
     @Test
     public void invalidMinimumYByHeight() {
-        insertValidAreaIntoArray("Excavator", "129");
+        helper.createValidArea("Excavator", "129");
 
-        WorkArea workArea = builder.build(signBlock);
+        WorkArea workArea = builder.build(helper.getSignBlock());
 
         assertThat(workArea.isValid(), equalTo(false));
         assertThat(workArea.getInvalidReason(), equalTo("Depth too high"));
@@ -161,9 +154,9 @@ public class WorkAreaBuilderTest {
 
     @Test
     public void invalidMinimumYByContent() {
-        insertValidAreaIntoArray("Excavator", "aa");
+        helper.createValidArea("Excavator", "aa");
 
-        WorkArea workArea = builder.build(signBlock);
+        WorkArea workArea = builder.build(helper.getSignBlock());
 
         assertThat(workArea.isValid(), equalTo(false));
         assertThat(workArea.getInvalidReason(), equalTo("Invalid depth"));
@@ -171,9 +164,9 @@ public class WorkAreaBuilderTest {
 
     @Test
     public void invalidMinimumYInRangeByContent() {
-        insertValidAreaIntoArray("Excavator", "aa-60");
+        helper.createValidArea("Excavator", "aa-60");
 
-        WorkArea workArea = builder.build(signBlock);
+        WorkArea workArea = builder.build(helper.getSignBlock());
 
         assertThat(workArea.isValid(), equalTo(false));
         assertThat(workArea.getInvalidReason(), equalTo("Invalid depth"));
@@ -181,9 +174,9 @@ public class WorkAreaBuilderTest {
 
     @Test
     public void invalidMaximumYInRangeByContent() {
-        insertValidAreaIntoArray("Excavator", "60-aa");
+        helper.createValidArea("Excavator", "60-aa");
 
-        WorkArea workArea = builder.build(signBlock);
+        WorkArea workArea = builder.build(helper.getSignBlock());
 
         assertThat(workArea.isValid(), equalTo(false));
         assertThat(workArea.getInvalidReason(), equalTo("Invalid height"));
@@ -192,30 +185,10 @@ public class WorkAreaBuilderTest {
 
     @Test
     public void setMaximumY() {
-        insertValidAreaIntoArray();
+        helper.createValidArea();
 
-        WorkArea workArea = builder.build(signBlock);
+        WorkArea workArea = builder.build(helper.getSignBlock());
 
         assertThat(workArea.getMaximumY(), equalTo(128));
-    }
-
-    private void insertValidAreaIntoArray() {
-        insertValidAreaIntoArray("Excavator", "56");
-    }
-
-    private void insertValidAreaIntoArray(int i, int j, int size) {
-        insertValidAreaIntoArray(i, j, size, "Excavator", "56");
-    }
-
-    private void insertValidAreaIntoArray(String... lines) {
-        insertValidAreaIntoArray(8, 2, 20, lines);
-    }
-
-    private void insertValidAreaIntoArray(int i, int j, int size, String... lines) {
-        MockBlock[][][] array = MockBlock.createBlockArray(size, size);
-        signBlock = array[i][j][64];
-        engineBlock = (MockBlock) signBlock.getRelative(BlockFace.SOUTH);
-        supplyChest = (MockBlock) engineBlock.getRelative(BlockFace.UP);
-        helper.createValidArea(signBlock, engineBlock, supplyChest, BlockFace.NORTH, Arrays.asList(lines));
     }
 }
