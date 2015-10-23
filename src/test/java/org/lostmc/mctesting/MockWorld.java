@@ -32,37 +32,43 @@ import org.bukkit.util.Vector;
 
 import java.io.File;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
 public class MockWorld implements World {
-    private Map<Location, Block> locationBlockMap = new HashMap<>();
     private int maxHeight;
+    private MockBlock[][][] array;
+    private int baseX;
+    private int baseZ;
 
     @Override
     public int getMaxHeight() {
         return maxHeight;
     }
 
-    public void setMaxHeight(int maxHeight) {
-        this.maxHeight = maxHeight;
-    }
-
     @Override
     public Block getBlockAt(int x, int y, int z) {
-        throw new UnsupportedOperationException();
+        return array[baseX + x][y][baseZ + z];
     }
 
     @Override
     public Block getBlockAt(Location location) {
-        return locationBlockMap.get(location);
+        return getBlockAt(location.getBlockX(), location.getBlockY(), location.getBlockZ());
     }
 
     public void putBlockAt(Location location, Block block) {
-        locationBlockMap.put(location, block);
+        array[baseX + location.getBlockX()][location.getBlockY()][baseZ + location.getBlockZ()] = (MockBlock) block;
+    }
+
+    void setArray(MockBlock[][][] array, int baseX, int baseZ) {
+        this.array = array;
+        this.baseX = baseX;
+        this.baseZ = baseZ;
+    }
+
+    void setMaxHeight(int maxHeight) {
+        this.maxHeight = maxHeight;
     }
 
     @Override

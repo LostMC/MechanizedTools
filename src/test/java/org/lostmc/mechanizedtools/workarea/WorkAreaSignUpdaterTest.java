@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.lostmc.mctesting.MockBlock;
 import org.lostmc.mctesting.MockSign;
 import org.lostmc.mctesting.MockWorld;
+import org.lostmc.mctesting.MockWorldBuilder;
 
 import java.util.ArrayList;
 
@@ -43,11 +44,10 @@ public class WorkAreaSignUpdaterTest {
     }
 
     private WorkArea createWorkArea(MockBlock block, boolean valid, String reason) {
-        WorkArea workArea = new WorkArea();
-        MockWorld world = new MockWorld();
+        MockWorld world = new MockWorldBuilder().build();
         Location location = new Location(world, 0, 0, 0);
         world.putBlockAt(location, block);
-        location.getBlock();
+        WorkArea workArea = new WorkArea();
         workArea.setSignBlockLocation(location);
         workArea.setValid(valid);
         workArea.setInvalidReason(reason);

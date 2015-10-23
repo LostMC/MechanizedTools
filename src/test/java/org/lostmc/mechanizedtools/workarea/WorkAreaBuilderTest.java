@@ -66,16 +66,16 @@ public class WorkAreaBuilderTest {
 
     @Test
     public void setXZMinimumsWhenPositive() {
-        helper.createValidArea(19, 15, 25);
+        helper.createValidArea(8, 3, 30);
         WorkArea workArea = builder.build(helper.getSignBlock());
 
-        assertThat(workArea.getMinimumX(), equalTo(1L));
+        assertThat(workArea.getMinimumX(), equalTo(2L));
         assertThat(workArea.getMinimumZ(), equalTo(2L));
     }
 
     @Test
     public void setXZMaximumsWhenPositive() {
-        helper.createValidArea(19, 15, 25);
+        helper.createValidArea(7, 3, 30);
         WorkArea workArea = builder.build(helper.getSignBlock());
 
         assertThat(workArea.getMaximumX(), equalTo(10L));

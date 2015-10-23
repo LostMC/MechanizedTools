@@ -17,94 +17,63 @@ import java.util.Collection;
 import java.util.List;
 
 public class MockBlock implements Block {
-    private static MockBlock[][][] blockArray;
-    private int x;
-    private int y;
-    private int z;
     private Material material;
-    private int j;
-    private int i;
-    private int k;
     private BlockState state;
     private World world;
+    private Location location;
 
     public MockBlock(Material material) {
         this.material = material;
         this.state = new MockBlockState(this);
     }
 
-    public static MockBlock[][][] createBlockArray(int width, int length) {
-        int baseWidth = -(width / 2);
-        int baseLength = -(length / 2);
-        MockWorld world = new MockWorld();
-        world.setMaxHeight(128);
-        blockArray = new MockBlock[width][length][128];
-        for (int k = 0; k < 128; k++) {
-            for (int i = 0; i < width; i++) {
-                for (int j = 0; j < length; j++) {
-                    MockBlock block = new MockBlock(Material.AIR);
-                    if (k < 64) {
-                        block = new MockBlock(Material.DIRT);
-                    }
-                    block.setWorld(world);
-                    block.x = baseWidth + i;
-                    block.y = k;
-                    block.z = baseLength + j;
-                    block.i = i;
-                    block.j = j;
-                    block.k = k;
-                    blockArray[i][j][k] = block;
-                }
-            }
-        }
-        return blockArray;
-    }
-
     @Override
     public String toString() {
-        return "(" + getX() + ", " + getY() + ", " + getZ() + "): " + material;
+        return "(" + getX() + ", " + getY() + ", " + getZ() + "): " + (material == null ? "" : material);
     }
 
     @Override
     public int getX() {
-        return x;
+        return location.getBlockX();
     }
 
     @Override
     public int getY() {
-        return y;
+        return location.getBlockY();
     }
 
     @Override
     public int getZ() {
-        return z;
+        return location.getBlockZ();
     }
 
     @Override
     public Block getRelative(BlockFace face) {
+        return getRelative(face, 1);
+    }
+
+    @Override
+    public Block getRelative(BlockFace face, int distance) {
+        int x = getX();
+        int y = getY();
+        int z = getZ();
         switch (face) {
             case NORTH:
-                if (j == 0) throw new IllegalArgumentException("Accessing invalid block");
-                return blockArray[i][j - 1][k];
-            case NORTH_EAST:
-                if (j == 0) throw new IllegalArgumentException("Accessing invalid block");
-                return blockArray[i + 1][j - 1][k];
+                return world.getBlockAt(x, y, z - distance);
             case EAST:
-                return blockArray[i + 1][j][k];
+                return world.getBlockAt(x + distance, y, z);
             case SOUTH:
-            if (j == 1000) throw new IllegalArgumentException("Accessing invalid block");
-            return blockArray[i][j + 1][k];
+                return world.getBlockAt(x, y, z + distance);
             case WEST:
-            if (i == 0) throw new IllegalArgumentException("Accessing invalid block");
-            return blockArray[i - 1][j][k];
+                return world.getBlockAt(x - distance, y, z);
             case UP:
-                return blockArray[i][j][k+1];
+                return world.getBlockAt(x, y + distance, z);
             case DOWN:
-                return blockArray[i][j][k-1];
+                return world.getBlockAt(x, y - distance, z);
             case SELF:
                 return this;
             default:
-                throw new IllegalArgumentException("Accessing invalid block");
+                throw new IllegalArgumentException("Invalid facing");
         }
     }
 
@@ -142,11 +111,6 @@ public class MockBlock implements Block {
     }
 
     @Override
-    public Block getRelative(BlockFace face, int distance) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public int getTypeId() {
         throw new UnsupportedOperationException();
     }
@@ -168,8 +132,6 @@ public class MockBlock implements Block {
 
     @Override
     public Location getLocation() {
-        Location location = new Location(getWorld(), x, y, z);
-        ((MockWorld)getWorld()).putBlockAt(location, this);
         return location;
     }
 
@@ -327,5 +289,9 @@ public class MockBlock implements Block {
     @Override
     public void removeMetadata(String metadataKey, Plugin owningPlugin) {
         throw new UnsupportedOperationException();
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
     }
 }
