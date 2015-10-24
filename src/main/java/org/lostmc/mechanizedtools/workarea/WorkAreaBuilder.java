@@ -108,13 +108,13 @@ public class WorkAreaBuilder {
     }
 
     private void updateMaximums(WorkArea workArea, Block engineBlock) {
-        workArea.setMaximumX(Long.max(engineBlock.getX(), workArea.getMaximumX()));
-        workArea.setMaximumZ(Long.max(engineBlock.getZ(), workArea.getMaximumZ()));
+        workArea.setMaximumX(Integer.max(engineBlock.getX(), workArea.getMaximumX()));
+        workArea.setMaximumZ(Integer.max(engineBlock.getZ(), workArea.getMaximumZ()));
     }
 
     private void updateMinimums(WorkArea workArea, Block block) {
-        workArea.setMinimumX(Long.min(block.getX(), workArea.getMinimumX()));
-        workArea.setMinimumZ(Long.min(block.getZ(), workArea.getMinimumZ()));
+        workArea.setMinimumX(Integer.min(block.getX(), workArea.getMinimumX()));
+        workArea.setMinimumZ(Integer.min(block.getZ(), workArea.getMinimumZ()));
     }
 
     private boolean isAChest(Block supplyChestBlock) {

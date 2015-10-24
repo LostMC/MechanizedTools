@@ -1,9 +1,8 @@
 package org.lostmc.mechanizedtools.workarea;
 
-import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.block.Block;
-import org.bukkit.block.BlockFace;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitScheduler;
 
@@ -20,14 +19,28 @@ public class WorkAreaLaborer implements Runnable {
 
     @Override
     public void run() {
-        Location signBlockLocation = workArea.getSignBlockLocation();
-        Block block = signBlockLocation.getBlock();
-        Block relative = block.getRelative(BlockFace.SOUTH);
-        Block relative1 = relative.getRelative(BlockFace.SOUTH);
-        Block blockToMine = relative1.getRelative(BlockFace.DOWN);
-        if (blockToMine.getType() == Material.AIR) {
-            blockToMine = blockToMine.getRelative(BlockFace.DOWN);
+        int outlineLayer = workArea.getSignBlockLocation().getBlockY();
+        World world = workArea.getSignBlockLocation().getWorld();
+        boolean foundRedstone = false;
+        for (int z = workArea.getMinimumZ(); z < workArea.getMaximumZ(); z++) {
+            for (int x = workArea.getMinimumX(); x < workArea.getMaximumX(); x++) {
+                Block outlineBLock = world.getBlockAt(x, outlineLayer, z);
+                if (outlineBLock.getType() == Material.REDSTONE_WIRE) {
+                    if (foundRedstone) {
+                        foundRedstone = false;
+                        break;
+                    } else {
+                        foundRedstone = true;
+                    }
+                } else if (foundRedstone) {
+                    Block block = world.getBlockAt(x, 63, z);
+                    if (block.getType() != Material.AIR) {
+                        scheduler.runTask(plugin, new WorkAreaBlockMiner(block));
+                        return;
+                    }
+                }
+            }
         }
-        scheduler.runTask(plugin, new WorkAreaBlockMiner(blockToMine));
     }
 }
+//        for (int y = workArea.getMaximumY() - 1; y >= workArea.getMinimumY(); y--) {

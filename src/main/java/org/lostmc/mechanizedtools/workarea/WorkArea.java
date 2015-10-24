@@ -6,10 +6,10 @@ public class WorkArea {
     private boolean valid = true;
     private Location signBlockLocation;
     private Location supplyChestLocation;
-    private long minimumX = Long.MAX_VALUE;
-    private long minimumZ = Long.MAX_VALUE;
-    private long maximumX = Long.MIN_VALUE;
-    private long maximumZ = Long.MIN_VALUE;
+    private int minimumX = Integer.MAX_VALUE;
+    private int minimumZ = Integer.MAX_VALUE;
+    private int maximumX = Integer.MIN_VALUE;
+    private int maximumZ = Integer.MIN_VALUE;
     private int minimumY;
     private int maximumY;
     private String invalidReason;
@@ -38,35 +38,35 @@ public class WorkArea {
         return signBlockLocation;
     }
 
-    public long getMinimumX() {
+    public int getMinimumX() {
         return minimumX;
     }
 
-    public void setMinimumX(long minimumX) {
+    public void setMinimumX(int minimumX) {
         this.minimumX = minimumX;
     }
 
-    public long getMinimumZ() {
+    public int getMinimumZ() {
         return minimumZ;
     }
 
-    public void setMinimumZ(long minimumZ) {
+    public void setMinimumZ(int minimumZ) {
         this.minimumZ = minimumZ;
     }
 
-    public long getMaximumX() {
+    public int getMaximumX() {
         return maximumX;
     }
 
-    public void setMaximumX(long maximumX) {
+    public void setMaximumX(int maximumX) {
         this.maximumX = maximumX;
     }
 
-    public long getMaximumZ() {
+    public int getMaximumZ() {
         return maximumZ;
     }
 
-    public void setMaximumZ(long maximumZ) {
+    public void setMaximumZ(int maximumZ) {
         this.maximumZ = maximumZ;
     }
 

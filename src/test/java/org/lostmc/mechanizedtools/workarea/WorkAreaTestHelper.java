@@ -172,4 +172,8 @@ public class WorkAreaTestHelper {
     public MockBlock getSupplyChest() {
         return supplyChest;
     }
+
+    public Map<Integer, List<MockBlock>> getBlockListsByLayer() {
+        return blockListsByLayer;
+    }
 }
