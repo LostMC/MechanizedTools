@@ -661,4 +661,20 @@ public class MockWorld implements World {
     public Set<String> getListeningPluginChannels() {
         throw new UnsupportedOperationException();
     }
+
+    public int getMinimumX() {
+        return -baseX;
+    }
+
+    public int getMaximumX() {
+        return baseX;
+    }
+
+    public int getMinimumZ() {
+        return -baseZ;
+    }
+
+    public int getMaximumZ() {
+        return baseZ;
+    }
 }
