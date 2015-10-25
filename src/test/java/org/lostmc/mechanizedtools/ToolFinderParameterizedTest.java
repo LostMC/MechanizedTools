@@ -40,14 +40,61 @@ public class ToolFinderParameterizedTest {
     @Parameterized.Parameters
     public static Collection parameters() {
         return Arrays.asList(new Object[][]{
-                {Material.AIR,       false, null,                   null},
-                {Material.DIRT,      true,  null,                   Material.AIR},
-                {Material.GRASS,     true,  null,                   Material.AIR},
-                {Material.GRAVEL,    true,  null,                   Material.AIR},
-                {Material.IRON_ORE,  true,  Material.STONE_PICKAXE, Material.STONE_PICKAXE},
-                {Material.SAND,      true,  null,                   Material.AIR},
-                {Material.SANDSTONE, true,  Material.WOOD_PICKAXE,  Material.WOOD_PICKAXE},
-                {Material.STONE,     true,  Material.WOOD_PICKAXE,  Material.WOOD_PICKAXE}
+                {Material.AIR,       false, null,                     null},
+                {Material.AIR,       false, Material.WOOD_PICKAXE,    null},
+                {Material.AIR,       false, Material.STONE_PICKAXE,   null},
+                {Material.AIR,       false, Material.IRON_PICKAXE,    null},
+                {Material.AIR,       false, Material.GOLD_PICKAXE,    null},
+                {Material.AIR,       false, Material.DIAMOND_PICKAXE, null},
+
+                {Material.DIRT,      true,  null,                     Material.AIR},
+                {Material.DIRT,      true,  Material.WOOD_SPADE,      Material.AIR},
+                {Material.DIRT,      true,  Material.STONE_SPADE,     Material.AIR},
+                {Material.DIRT,      true,  Material.IRON_SPADE,      Material.AIR},
+                {Material.DIRT,      true,  Material.GOLD_SPADE,      Material.AIR},
+                {Material.DIRT,      true,  Material.DIAMOND_SPADE,   Material.AIR},
+
+                {Material.GRASS,     true,  null,                     Material.AIR},
+                {Material.GRASS,     true,  Material.WOOD_SPADE,      Material.AIR},
+                {Material.GRASS,     true,  Material.STONE_SPADE,     Material.AIR},
+                {Material.GRASS,     true,  Material.IRON_SPADE,      Material.AIR},
+                {Material.GRASS,     true,  Material.GOLD_SPADE,      Material.AIR},
+                {Material.GRASS,     true,  Material.DIAMOND_SPADE,   Material.AIR},
+
+                {Material.GRAVEL,    true,  null,                     Material.AIR},
+                {Material.GRAVEL,    true,  Material.WOOD_SPADE,      Material.AIR},
+                {Material.GRAVEL,    true,  Material.STONE_SPADE,     Material.AIR},
+                {Material.GRAVEL,    true,  Material.IRON_SPADE,      Material.AIR},
+                {Material.GRAVEL,    true,  Material.GOLD_SPADE,      Material.AIR},
+                {Material.GRAVEL,    true,  Material.DIAMOND_SPADE,   Material.AIR},
+
+                {Material.SAND,      true,  null,                     Material.AIR},
+                {Material.SAND,      true,  Material.WOOD_SPADE,      Material.AIR},
+                {Material.SAND,      true,  Material.STONE_SPADE,     Material.AIR},
+                {Material.SAND,      true,  Material.IRON_SPADE,      Material.AIR},
+                {Material.SAND,      true,  Material.GOLD_SPADE,      Material.AIR},
+                {Material.SAND,      true,  Material.DIAMOND_SPADE,   Material.AIR},
+
+                {Material.IRON_ORE,  true,  Material.STONE_PICKAXE,   Material.STONE_PICKAXE},
+                {Material.IRON_ORE,  true,  Material.IRON_PICKAXE,    Material.IRON_PICKAXE},
+                {Material.IRON_ORE,  true,  Material.DIAMOND_PICKAXE, Material.DIAMOND_PICKAXE},
+
+                {Material.IRON_ORE,  true,  null,                     null},
+                {Material.IRON_ORE,  true,  Material.WOOD_PICKAXE,    null},
+                {Material.IRON_ORE,  true,  Material.WOOD_SPADE,      null},
+                {Material.IRON_ORE,  true,  Material.GOLD_PICKAXE,    null},
+
+                {Material.SANDSTONE, true,  null,                     null},
+                {Material.SANDSTONE, true,  Material.WOOD_PICKAXE,    Material.WOOD_PICKAXE},
+                {Material.SANDSTONE, true,  Material.STONE_PICKAXE,   Material.STONE_PICKAXE},
+                {Material.SANDSTONE, true,  Material.IRON_PICKAXE,    Material.IRON_PICKAXE},
+                {Material.SANDSTONE, true,  Material.DIAMOND_PICKAXE, Material.DIAMOND_PICKAXE},
+
+                {Material.STONE,     true,  null,                     null},
+                {Material.STONE,     true,  Material.WOOD_PICKAXE,    Material.WOOD_PICKAXE},
+                {Material.STONE,     true,  Material.STONE_PICKAXE,   Material.STONE_PICKAXE},
+                {Material.STONE,     true,  Material.IRON_PICKAXE,    Material.IRON_PICKAXE},
+                {Material.STONE,     true,  Material.DIAMOND_PICKAXE, Material.DIAMOND_PICKAXE}
         });
     }
 
