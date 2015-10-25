@@ -15,12 +15,15 @@ public class ToolFinder {
     }
 
     public ItemStack findToolFor(Material material, Inventory inventory) {
-        for (Material tool : TOOL_PREFERENCES.get(material)) {
-            if (tool == Material.AIR) {
-                return new ItemStack(Material.AIR);
-            }
-            if (inventory.contains(tool)) {
-                return inventory.getItem(inventory.first(tool));
+        List<Material> materials = TOOL_PREFERENCES.get(material);
+        if (materials != null) {
+            for (Material tool : materials) {
+                if (tool == Material.AIR) {
+                    return new ItemStack(Material.AIR);
+                }
+                if (inventory.contains(tool)) {
+                    return inventory.getItem(inventory.first(tool));
+                }
             }
         }
         return null;
