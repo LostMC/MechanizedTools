@@ -51,8 +51,8 @@ public class WorkAreaBuilderTest {
         helper.createValidArea();
         WorkArea workArea = builder.build(helper.getSignBlock());
 
-        assertThat(workArea.getMinimumX(), equalTo(-8L));
-        assertThat(workArea.getMinimumZ(), equalTo(-9L));
+        assertThat(workArea.getMinimumX(), equalTo(-8));
+        assertThat(workArea.getMinimumZ(), equalTo(-9));
     }
 
     @Test
@@ -60,8 +60,8 @@ public class WorkAreaBuilderTest {
         helper.createValidArea();
         WorkArea workArea = builder.build(helper.getSignBlock());
 
-        assertThat(workArea.getMaximumX(), equalTo(1L));
-        assertThat(workArea.getMaximumZ(), equalTo(0L));
+        assertThat(workArea.getMaximumX(), equalTo(1));
+        assertThat(workArea.getMaximumZ(), equalTo(0));
     }
 
     @Test
@@ -69,8 +69,8 @@ public class WorkAreaBuilderTest {
         helper.createValidArea(8, 3, 30);
         WorkArea workArea = builder.build(helper.getSignBlock());
 
-        assertThat(workArea.getMinimumX(), equalTo(2L));
-        assertThat(workArea.getMinimumZ(), equalTo(2L));
+        assertThat(workArea.getMinimumX(), equalTo(2));
+        assertThat(workArea.getMinimumZ(), equalTo(2));
     }
 
     @Test
@@ -78,14 +78,14 @@ public class WorkAreaBuilderTest {
         helper.createValidArea(7, 3, 30);
         WorkArea workArea = builder.build(helper.getSignBlock());
 
-        assertThat(workArea.getMaximumX(), equalTo(10L));
-        assertThat(workArea.getMaximumZ(), equalTo(11L));
+        assertThat(workArea.getMaximumX(), equalTo(10));
+        assertThat(workArea.getMaximumZ(), equalTo(11));
     }
 
     @Test
     public void whenSignIsNotAttachedToAnIronBlock() {
         helper.createValidArea();
-        helper.getEngineBlock().setType(Material.COBBLESTONE);
+        helper.getEngineBlock().setMaterial(Material.COBBLESTONE);
 
         WorkArea workArea = builder.build(helper.getSignBlock());
 
@@ -96,7 +96,7 @@ public class WorkAreaBuilderTest {
     @Test
     public void whenSupplyChestIsNotAboveEngineBlock() {
         helper.createValidArea();
-        helper.getSupplyChest().setType(Material.AIR);
+        helper.getSupplyChest().setMaterial(Material.AIR);
 
         WorkArea workArea = builder.build(helper.getSignBlock());
 

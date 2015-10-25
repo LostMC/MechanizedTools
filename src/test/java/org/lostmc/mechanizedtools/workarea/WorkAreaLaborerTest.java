@@ -85,7 +85,7 @@ public class WorkAreaLaborerTest {
         for (int x = mockWorld.getMinimumX(); x < mockWorld.getMaximumX(); x++) {
             for (int z = mockWorld.getMinimumZ(); z < mockWorld.getMaximumZ(); z++) {
                 MockBlock block = (MockBlock) mockWorld.getBlockAt(x, layer, z);
-                block.setType(Material.AIR);
+                block.setMaterial(Material.AIR);
             }
         }
     }

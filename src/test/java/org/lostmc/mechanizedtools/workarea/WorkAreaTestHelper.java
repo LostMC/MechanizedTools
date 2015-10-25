@@ -53,7 +53,7 @@ public class WorkAreaTestHelper {
         Sign data = new Sign(Material.WALL_SIGN);
         data.setFacingDirection(facing);
 
-        block.setType(Material.WALL_SIGN);
+        block.setMaterial(Material.WALL_SIGN);
 
         MockSign sign = new MockSign(block);
         sign.setData(data);
@@ -67,11 +67,11 @@ public class WorkAreaTestHelper {
     }
 
     private void createEngineBlock(MockBlock block) {
-        block.setType(Material.IRON_BLOCK);
+        block.setMaterial(Material.IRON_BLOCK);
     }
 
     private void createSupplyChest(MockBlock block) {
-        block.setType(Material.CHEST);
+        block.setMaterial(Material.CHEST);
     }
 
     private void addRedstone(MockBlock engineBlock) {
@@ -157,7 +157,7 @@ public class WorkAreaTestHelper {
     private MockBlock setNextBlock(MockBlock block, BlockFace face) {
 
         MockBlock newBlock = (MockBlock) block.getRelative(face);
-        newBlock.setType(Material.REDSTONE_WIRE);
+        newBlock.setMaterial(Material.REDSTONE_WIRE);
         return newBlock;
     }
 

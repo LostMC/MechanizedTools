@@ -14,10 +14,28 @@ import java.util.List;
 
 public class MockBlockState implements BlockState {
     private final Block block;
+    private Material material;
     private MaterialData data;
 
     public MockBlockState(Block block) {
         this.block = block;
+        this.material = block.getType();
+    }
+
+    @Override
+    public boolean update() {
+        return update(true);
+    }
+
+    @Override
+    public boolean update(boolean force) {
+        return update(force, true);
+    }
+
+    @Override
+    public boolean update(boolean force, boolean applyPhysics) {
+        ((MockBlock)block).setMaterial(material);
+        return true;
     }
 
     @Override
@@ -27,12 +45,27 @@ public class MockBlockState implements BlockState {
 
     @Override
     public Material getType() {
-        return block.getType();
+        return material;
     }
 
     @Override
     public void setType(Material type) {
-        this.block.setType(type);
+        this.material = type;
+    }
+
+    public void setMaterial(Material material) {
+        this.material = material;
+        update();
+    }
+
+    @Override
+    public World getWorld() {
+        return block.getWorld();
+    }
+
+    @Override
+    public Location getLocation() {
+        return block.getLocation();
     }
 
     @Override
@@ -66,16 +99,6 @@ public class MockBlockState implements BlockState {
     }
 
     @Override
-    public World getWorld() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Location getLocation() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public Location getLocation(Location loc) {
         throw new UnsupportedOperationException();
     }
@@ -92,21 +115,6 @@ public class MockBlockState implements BlockState {
 
     @Override
     public boolean setTypeId(int type) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public boolean update() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public boolean update(boolean force) {
-        return true;
-    }
-
-    @Override
-    public boolean update(boolean force, boolean applyPhysics) {
         throw new UnsupportedOperationException();
     }
 

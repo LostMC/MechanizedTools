@@ -84,7 +84,12 @@ public class MockBlock implements Block {
 
     @Override
     public void setType(Material material) {
+        // This accessed directly won't actually update the block.
+    }
+
+    public void setMaterial(Material material) {
         this.material = material;
+        this.getState().setType(material);
     }
 
     @Override
