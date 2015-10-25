@@ -12,7 +12,11 @@ public class BreakingTimeLookup {
 
     public long getBreakingTimeFor(Material material, BreakingMethod method) {
         Map<BreakingMethod, Long> materialTimes = BREAKING_TIMES.get(material);
-        return materialTimes.get(method);
+        if (materialTimes == null) {
+            return 0;
+        }
+        Long time = materialTimes.get(method);
+        return time == null ? 0 : time;
     }
 
     public BreakingTimeLookup() {

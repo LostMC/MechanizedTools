@@ -25,6 +25,13 @@ public class BreakingTimeLookupParameterizedTest {
     @Parameters
     public static Collection parameters() {
         return Arrays.asList(new Object[][] {
+                {Material.AIR,         BreakingMethod.HAND,    false, 0},
+                {Material.AIR,         BreakingMethod.WOOD,    false, 0},
+                {Material.AIR,         BreakingMethod.STONE,   false, 0},
+                {Material.AIR,         BreakingMethod.IRON,    false, 0},
+                {Material.AIR,         BreakingMethod.DIAMOND, false, 0},
+                {Material.AIR,         BreakingMethod.GOLD,    false, 0},
+
                 {Material.GRAVEL,      BreakingMethod.HAND,    true, (long)(0.90 * TICKS_PER_SECOND)},
                 {Material.GRAVEL,      BreakingMethod.WOOD,    true, (long)(0.45 * TICKS_PER_SECOND)},
                 {Material.GRAVEL,      BreakingMethod.STONE,   true, (long)(0.25 * TICKS_PER_SECOND)},
@@ -59,12 +66,15 @@ public class BreakingTimeLookupParameterizedTest {
                 {Material.SANDSTONE,   BreakingMethod.DIAMOND, true, (long)(0.20 * TICKS_PER_SECOND)},
                 {Material.SANDSTONE,   BreakingMethod.GOLD,    true, (long)(0.10 * TICKS_PER_SECOND)},
 
+                {Material.STONE,       BreakingMethod.HAND,    false, 0},
                 {Material.STONE,       BreakingMethod.WOOD,    true, (long)(1.15 * TICKS_PER_SECOND)},
                 {Material.STONE,       BreakingMethod.STONE,   true, (long)(0.60 * TICKS_PER_SECOND)},
                 {Material.STONE,       BreakingMethod.IRON,    true, (long)(0.40 * TICKS_PER_SECOND)},
                 {Material.STONE,       BreakingMethod.DIAMOND, true, (long)(0.30 * TICKS_PER_SECOND)},
                 {Material.STONE,       BreakingMethod.GOLD,    true, (long)(0.20 * TICKS_PER_SECOND)},
 
+                {Material.IRON_ORE,    BreakingMethod.HAND,    false, 0},
+                {Material.IRON_ORE,    BreakingMethod.WOOD,    false, 0},
                 {Material.IRON_ORE,    BreakingMethod.STONE,   true, (long)(1.15 * TICKS_PER_SECOND)},
                 {Material.IRON_ORE,    BreakingMethod.IRON,    true, (long)(0.75 * TICKS_PER_SECOND)},
                 {Material.IRON_ORE,    BreakingMethod.DIAMOND, true, (long)(0.60 * TICKS_PER_SECOND)},
