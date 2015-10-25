@@ -19,7 +19,7 @@ import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 
-public class WorkAreaLaborerTest {
+public class MineableBlockFinderTest {
     private final MockBukkitScheduler scheduler = new MockBukkitScheduler();
     private final JavaPlugin plugin = mock(JavaPlugin.class);
     private final WorkAreaTestHelper helper = new WorkAreaTestHelper();
@@ -38,7 +38,7 @@ public class WorkAreaLaborerTest {
 
         WorkArea workArea = builder.build(signBlock);
 
-        WorkAreaLaborer laborer = new WorkAreaLaborer(workArea, scheduler, plugin);
+        MineableBlockFinder laborer = new MineableBlockFinder(workArea, scheduler, plugin);
 
         laborer.run();
 
@@ -52,7 +52,7 @@ public class WorkAreaLaborerTest {
 
         WorkArea workArea = builder.build(signBlock);
 
-        WorkAreaLaborer laborer = new WorkAreaLaborer(workArea, scheduler, plugin);
+        MineableBlockFinder laborer = new MineableBlockFinder(workArea, scheduler, plugin);
 
         laborer.run();
 
@@ -65,7 +65,7 @@ public class WorkAreaLaborerTest {
     public void findCorrectBlockOnOtherLayers() {
         MockBlock signBlock = helper.getSignBlock();
         WorkArea workArea = builder.build(signBlock);
-        WorkAreaLaborer laborer = new WorkAreaLaborer(workArea, scheduler, plugin);
+        MineableBlockFinder laborer = new MineableBlockFinder(workArea, scheduler, plugin);
         for (int layer = 63; layer > workArea.getMinimumY(); layer--) {
             clearLayer(signBlock.getWorld(), layer);
 

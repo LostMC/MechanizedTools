@@ -59,7 +59,7 @@ public class WorkAreaStarterTest {
         starter.run();
 
         assertThat(scheduler.getPlugin(), sameInstance(plugin));
-        assertThat(scheduler.getRunnable(), instanceOf(WorkAreaLaborer.class));
+        assertThat(scheduler.getRunnable(), instanceOf(MineableBlockFinder.class));
         assertThat(scheduler.getMethod(), containsString("Asynchronously"));
     }
 }

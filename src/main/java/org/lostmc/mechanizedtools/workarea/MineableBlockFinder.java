@@ -6,12 +6,12 @@ import org.bukkit.block.Block;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitScheduler;
 
-public class WorkAreaLaborer implements Runnable {
+public class MineableBlockFinder implements Runnable {
     private final WorkArea workArea;
     private final BukkitScheduler scheduler;
     private final JavaPlugin plugin;
 
-    public WorkAreaLaborer(WorkArea workArea, BukkitScheduler scheduler, JavaPlugin plugin) {
+    public MineableBlockFinder(WorkArea workArea, BukkitScheduler scheduler, JavaPlugin plugin) {
         this.workArea = workArea;
         this.scheduler = scheduler;
         this.plugin = plugin;

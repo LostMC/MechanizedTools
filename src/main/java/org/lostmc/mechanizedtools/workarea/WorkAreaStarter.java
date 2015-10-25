@@ -21,7 +21,7 @@ public class WorkAreaStarter implements Runnable {
     public void run() {
         WorkArea workArea = builder.build(signBlock);
         if (workArea.isValid()) {
-            scheduler.runTaskAsynchronously(plugin, new WorkAreaLaborer(workArea, scheduler, plugin));
+            scheduler.runTaskAsynchronously(plugin, new MineableBlockFinder(workArea, scheduler, plugin));
         } else {
             scheduler.runTask(plugin, new WorkAreaSignUpdater(workArea));
         }
