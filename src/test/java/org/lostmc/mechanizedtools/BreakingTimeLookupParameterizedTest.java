@@ -14,73 +14,75 @@ import static org.junit.Assert.assertThat;
 
 @RunWith(Parameterized.class)
 public class BreakingTimeLookupParameterizedTest {
-    private static final long TICKS_PER_SECOND = 20;
-
     @Test
     public void validateBreakingTimeLookup() {
         assertThat("Material: " + material + " and Method: " + method,
-                lookup.supports(material, method), equalTo(true));
+                lookup.supports(material, method), equalTo(supports));
         assertThat("Material: " + material + " and Method: " + method,
-                lookup.getBreakingTimeFor(material, method), equalTo(expected));
+                lookup.getBreakingTimeFor(material, method), equalTo(delay));
     }
 
     @Parameters
     public static Collection parameters() {
         return Arrays.asList(new Object[][] {
-                {Material.GRAVEL,      BreakingMethod.HAND,    (long)(0.90 * TICKS_PER_SECOND)},
-                {Material.GRAVEL,      BreakingMethod.WOOD,    (long)(0.45 * TICKS_PER_SECOND)},
-                {Material.GRAVEL,      BreakingMethod.STONE,   (long)(0.25 * TICKS_PER_SECOND)},
-                {Material.GRAVEL,      BreakingMethod.IRON,    (long)(0.15 * TICKS_PER_SECOND)},
-                {Material.GRAVEL,      BreakingMethod.DIAMOND, (long)(0.15 * TICKS_PER_SECOND)},
-                {Material.GRAVEL,      BreakingMethod.GOLD,    (long)(0.10 * TICKS_PER_SECOND)},
+                {Material.GRAVEL,      BreakingMethod.HAND,    true, (long)(0.90 * TICKS_PER_SECOND)},
+                {Material.GRAVEL,      BreakingMethod.WOOD,    true, (long)(0.45 * TICKS_PER_SECOND)},
+                {Material.GRAVEL,      BreakingMethod.STONE,   true, (long)(0.25 * TICKS_PER_SECOND)},
+                {Material.GRAVEL,      BreakingMethod.IRON,    true, (long)(0.15 * TICKS_PER_SECOND)},
+                {Material.GRAVEL,      BreakingMethod.DIAMOND, true, (long)(0.15 * TICKS_PER_SECOND)},
+                {Material.GRAVEL,      BreakingMethod.GOLD,    true, (long)(0.10 * TICKS_PER_SECOND)},
 
-                {Material.SAND,        BreakingMethod.HAND,    (long)(0.75 * TICKS_PER_SECOND)},
-                {Material.SAND,        BreakingMethod.WOOD,    (long)(0.40 * TICKS_PER_SECOND)},
-                {Material.SAND,        BreakingMethod.STONE,   (long)(0.20 * TICKS_PER_SECOND)},
-                {Material.SAND,        BreakingMethod.IRON,    (long)(0.15 * TICKS_PER_SECOND)},
-                {Material.SAND,        BreakingMethod.DIAMOND, (long)(0.10 * TICKS_PER_SECOND)},
-                {Material.SAND,        BreakingMethod.GOLD,    (long)(0.10 * TICKS_PER_SECOND)},
+                {Material.SAND,        BreakingMethod.HAND,    true, (long)(0.75 * TICKS_PER_SECOND)},
+                {Material.SAND,        BreakingMethod.WOOD,    true, (long)(0.40 * TICKS_PER_SECOND)},
+                {Material.SAND,        BreakingMethod.STONE,   true, (long)(0.20 * TICKS_PER_SECOND)},
+                {Material.SAND,        BreakingMethod.IRON,    true, (long)(0.15 * TICKS_PER_SECOND)},
+                {Material.SAND,        BreakingMethod.DIAMOND, true, (long)(0.10 * TICKS_PER_SECOND)},
+                {Material.SAND,        BreakingMethod.GOLD,    true, (long)(0.10 * TICKS_PER_SECOND)},
 
-                {Material.DIRT,        BreakingMethod.HAND,    (long)(0.75 * TICKS_PER_SECOND)},
-                {Material.DIRT,        BreakingMethod.WOOD,    (long)(0.40 * TICKS_PER_SECOND)},
-                {Material.DIRT,        BreakingMethod.STONE,   (long)(0.20 * TICKS_PER_SECOND)},
-                {Material.DIRT,        BreakingMethod.IRON,    (long)(0.15 * TICKS_PER_SECOND)},
-                {Material.DIRT,        BreakingMethod.DIAMOND, (long)(0.10 * TICKS_PER_SECOND)},
-                {Material.DIRT,        BreakingMethod.GOLD,    (long)(0.10 * TICKS_PER_SECOND)},
+                {Material.DIRT,        BreakingMethod.HAND,    true, (long)(0.75 * TICKS_PER_SECOND)},
+                {Material.DIRT,        BreakingMethod.WOOD,    true, (long)(0.40 * TICKS_PER_SECOND)},
+                {Material.DIRT,        BreakingMethod.STONE,   true, (long)(0.20 * TICKS_PER_SECOND)},
+                {Material.DIRT,        BreakingMethod.IRON,    true, (long)(0.15 * TICKS_PER_SECOND)},
+                {Material.DIRT,        BreakingMethod.DIAMOND, true, (long)(0.10 * TICKS_PER_SECOND)},
+                {Material.DIRT,        BreakingMethod.GOLD,    true, (long)(0.10 * TICKS_PER_SECOND)},
 
-                {Material.GRASS,       BreakingMethod.HAND,    (long)(0.75 * TICKS_PER_SECOND)},
-                {Material.GRASS,       BreakingMethod.WOOD,    (long)(0.40 * TICKS_PER_SECOND)},
-                {Material.GRASS,       BreakingMethod.STONE,   (long)(0.20 * TICKS_PER_SECOND)},
-                {Material.GRASS,       BreakingMethod.IRON,    (long)(0.15 * TICKS_PER_SECOND)},
-                {Material.GRASS,       BreakingMethod.DIAMOND, (long)(0.10 * TICKS_PER_SECOND)},
-                {Material.GRASS,       BreakingMethod.GOLD,    (long)(0.10 * TICKS_PER_SECOND)},
+                {Material.GRASS,       BreakingMethod.HAND,    true, (long)(0.75 * TICKS_PER_SECOND)},
+                {Material.GRASS,       BreakingMethod.WOOD,    true, (long)(0.40 * TICKS_PER_SECOND)},
+                {Material.GRASS,       BreakingMethod.STONE,   true, (long)(0.20 * TICKS_PER_SECOND)},
+                {Material.GRASS,       BreakingMethod.IRON,    true, (long)(0.15 * TICKS_PER_SECOND)},
+                {Material.GRASS,       BreakingMethod.DIAMOND, true, (long)(0.10 * TICKS_PER_SECOND)},
+                {Material.GRASS,       BreakingMethod.GOLD,    true, (long)(0.10 * TICKS_PER_SECOND)},
 
-                {Material.SANDSTONE,   BreakingMethod.WOOD,    (long)(0.65 * TICKS_PER_SECOND)},
-                {Material.SANDSTONE,   BreakingMethod.STONE,   (long)(0.35 * TICKS_PER_SECOND)},
-                {Material.SANDSTONE,   BreakingMethod.IRON,    (long)(0.20 * TICKS_PER_SECOND)},
-                {Material.SANDSTONE,   BreakingMethod.DIAMOND, (long)(0.20 * TICKS_PER_SECOND)},
-                {Material.SANDSTONE,   BreakingMethod.GOLD,    (long)(0.10 * TICKS_PER_SECOND)},
+                {Material.SANDSTONE,   BreakingMethod.WOOD,    true, (long)(0.65 * TICKS_PER_SECOND)},
+                {Material.SANDSTONE,   BreakingMethod.STONE,   true, (long)(0.35 * TICKS_PER_SECOND)},
+                {Material.SANDSTONE,   BreakingMethod.IRON,    true, (long)(0.20 * TICKS_PER_SECOND)},
+                {Material.SANDSTONE,   BreakingMethod.DIAMOND, true, (long)(0.20 * TICKS_PER_SECOND)},
+                {Material.SANDSTONE,   BreakingMethod.GOLD,    true, (long)(0.10 * TICKS_PER_SECOND)},
 
-                {Material.STONE,       BreakingMethod.WOOD,    (long)(1.15 * TICKS_PER_SECOND)},
-                {Material.STONE,       BreakingMethod.STONE,   (long)(0.60 * TICKS_PER_SECOND)},
-                {Material.STONE,       BreakingMethod.IRON,    (long)(0.40 * TICKS_PER_SECOND)},
-                {Material.STONE,       BreakingMethod.DIAMOND, (long)(0.30 * TICKS_PER_SECOND)},
-                {Material.STONE,       BreakingMethod.GOLD,    (long)(0.20 * TICKS_PER_SECOND)},
+                {Material.STONE,       BreakingMethod.WOOD,    true, (long)(1.15 * TICKS_PER_SECOND)},
+                {Material.STONE,       BreakingMethod.STONE,   true, (long)(0.60 * TICKS_PER_SECOND)},
+                {Material.STONE,       BreakingMethod.IRON,    true, (long)(0.40 * TICKS_PER_SECOND)},
+                {Material.STONE,       BreakingMethod.DIAMOND, true, (long)(0.30 * TICKS_PER_SECOND)},
+                {Material.STONE,       BreakingMethod.GOLD,    true, (long)(0.20 * TICKS_PER_SECOND)},
 
-                {Material.IRON_ORE,    BreakingMethod.STONE,   (long)(1.15 * TICKS_PER_SECOND)},
-                {Material.IRON_ORE,    BreakingMethod.IRON,    (long)(0.75 * TICKS_PER_SECOND)},
-                {Material.IRON_ORE,    BreakingMethod.DIAMOND, (long)(0.60 * TICKS_PER_SECOND)},
+                {Material.IRON_ORE,    BreakingMethod.STONE,   true, (long)(1.15 * TICKS_PER_SECOND)},
+                {Material.IRON_ORE,    BreakingMethod.IRON,    true, (long)(0.75 * TICKS_PER_SECOND)},
+                {Material.IRON_ORE,    BreakingMethod.DIAMOND, true, (long)(0.60 * TICKS_PER_SECOND)},
         });
     }
 
-    public BreakingTimeLookupParameterizedTest(Material material, BreakingMethod method, long expected) {
+    public BreakingTimeLookupParameterizedTest(Material material, BreakingMethod method, boolean supports, long delay) {
         this.material = material;
         this.method = method;
-        this.expected = expected;
+        this.delay = delay;
+        this.supports = supports;
     }
 
     private final BreakingTimeLookup lookup = new BreakingTimeLookup();
+
     private final Material material;
     private final BreakingMethod method;
-    private final long expected;
+    private final long delay;
+    private static final long TICKS_PER_SECOND = 20;
+    private final boolean supports;
 }
