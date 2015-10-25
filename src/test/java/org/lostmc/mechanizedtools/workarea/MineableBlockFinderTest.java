@@ -16,6 +16,7 @@ import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 
@@ -62,6 +63,23 @@ public class MineableBlockFinderTest {
     }
 
     @Test
+    public void doNotMineIfNoFirstRedstone() {
+        MockBlock signBlock = helper.getSignBlock();
+
+        WorkArea workArea = builder.build(signBlock);
+
+        MineableBlockFinder laborer = new MineableBlockFinder(workArea, scheduler, plugin);
+
+        clearRedstone(signBlock.getWorld());
+        
+        laborer.run();
+
+        WorkAreaBlockMiner runnable = (WorkAreaBlockMiner) scheduler.getRunnable();
+
+        assertThat(runnable, nullValue());
+    }
+
+    @Test
     public void findCorrectBlockOnOtherLayers() {
         MockBlock signBlock = helper.getSignBlock();
         WorkArea workArea = builder.build(signBlock);
@@ -77,6 +95,19 @@ public class MineableBlockFinderTest {
             assertThat(runnable, notNullValue());
             assertThat(mockBlocks, notNullValue());
             assertThat(runnable.getBlockToMine(), equalTo(mockBlocks.get(0)));
+        }
+    }
+
+
+    private void clearRedstone(World world) {
+        MockWorld mockWorld = (MockWorld) world;
+        for (int x = mockWorld.getMinimumX(); x < mockWorld.getMaximumX(); x++) {
+            for (int z = mockWorld.getMinimumZ(); z < mockWorld.getMaximumZ(); z++) {
+                MockBlock block = (MockBlock) mockWorld.getBlockAt(x, 64, z);
+                if (block.getType() == Material.REDSTONE_WIRE) {
+                    block.setMaterial(Material.AIR);
+                }
+            }
         }
     }
 
