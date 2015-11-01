@@ -2,11 +2,13 @@ package org.lostmc.mechanizedtools.workarea;
 
 import org.bukkit.Material;
 import org.bukkit.World;
-import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.plugin.Plugin;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.lostmc.mctesting.MockBlock;
 import org.lostmc.mctesting.MockBukkitScheduler;
+import org.lostmc.mctesting.MockJavaPlugin;
 import org.lostmc.mctesting.MockWorld;
 
 import java.util.List;
@@ -18,11 +20,10 @@ import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
-import static org.mockito.Mockito.mock;
 
 public class MineableBlockFinderTest {
     private final MockBukkitScheduler scheduler = new MockBukkitScheduler();
-    private final JavaPlugin plugin = mock(JavaPlugin.class);
+    private final Plugin plugin = new MockJavaPlugin("");
     private final WorkAreaTestHelper helper = new WorkAreaTestHelper();
     private final WorkAreaBuilder builder = new WorkAreaBuilder();
     private Map<Integer, List<MockBlock>> blockLists;
@@ -44,6 +45,7 @@ public class MineableBlockFinderTest {
         laborer.run();
 
         assertThat(scheduler.getMethod(), not(containsString("Asynchronously")));
+        assertThat(scheduler.getMethod(), containsString("runTask"));
         assertThat(scheduler.getPlugin(), equalTo(plugin));
     }
 
@@ -63,7 +65,7 @@ public class MineableBlockFinderTest {
     }
 
     @Test
-    public void doNotMineIfNoFirstRedstone() {
+    public void doNotMineIfNoRedstone() {
         MockBlock signBlock = helper.getSignBlock();
 
         WorkArea workArea = builder.build(signBlock);
@@ -71,11 +73,28 @@ public class MineableBlockFinderTest {
         MineableBlockFinder laborer = new MineableBlockFinder(workArea, scheduler, plugin);
 
         clearRedstone(signBlock.getWorld());
-        
+
         laborer.run();
 
         WorkAreaBlockMiner runnable = (WorkAreaBlockMiner) scheduler.getRunnable();
 
+        assertThat(runnable, nullValue());
+    }
+
+    @Ignore
+    @Test
+    public void doNotMineIfNoSecondRedstone() {
+        MockBlock signBlock = helper.getSignBlock();
+        WorkArea workArea = builder.build(signBlock);
+        MineableBlockFinder laborer = new MineableBlockFinder(workArea, scheduler, plugin);
+
+        MockWorld world = (MockWorld) signBlock.getWorld();
+        MockBlock block = (MockBlock) world.getBlockAt(-4, 64, -8);
+        block.setMaterial(Material.AIR);
+
+        laborer.run();
+
+        WorkAreaBlockMiner runnable = (WorkAreaBlockMiner) scheduler.getRunnable();
         assertThat(runnable, nullValue());
     }
 

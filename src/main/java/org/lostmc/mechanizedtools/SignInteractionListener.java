@@ -8,17 +8,17 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitScheduler;
 import org.lostmc.mechanizedtools.workarea.WorkAreaBuilder;
 import org.lostmc.mechanizedtools.workarea.WorkAreaStarter;
 
 public class SignInteractionListener implements Listener {
     private static final String SIGN_LABEL_EXCAVATOR = "excavator";
-    private final JavaPlugin plugin;
+    private final Plugin plugin;
     private final BukkitScheduler scheduler;
 
-    public SignInteractionListener(JavaPlugin plugin, BukkitScheduler scheduler) {
+    public SignInteractionListener(Plugin plugin, BukkitScheduler scheduler) {
         this.plugin = plugin;
         this.scheduler = scheduler;
     }
@@ -28,7 +28,8 @@ public class SignInteractionListener implements Listener {
         Block block = event.getClickedBlock();
         BlockState state = block.getState();
         if (isRightHandClick(event) && wallSignWasClicked(state) && wallSignProperlyLabeled(state)) {
-            scheduler.runTaskAsynchronously(plugin, new WorkAreaStarter(new WorkAreaBuilder(), block, scheduler, plugin));
+            WorkAreaStarter starter = new WorkAreaStarter(new WorkAreaBuilder(), block, scheduler, plugin);
+            scheduler.runTaskAsynchronously(plugin, starter);
         }
     }
 

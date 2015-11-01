@@ -1,10 +1,11 @@
 package org.lostmc.mechanizedtools.workarea;
 
 import org.bukkit.Material;
-import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.plugin.Plugin;
 import org.junit.Test;
 import org.lostmc.mctesting.MockBlock;
 import org.lostmc.mctesting.MockBukkitScheduler;
+import org.lostmc.mctesting.MockJavaPlugin;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.instanceOf;
@@ -17,7 +18,7 @@ import static org.mockito.Mockito.when;
 
 public class WorkAreaStarterTest {
     private final MockBukkitScheduler scheduler = new MockBukkitScheduler();
-    private final JavaPlugin plugin = mock(JavaPlugin.class);
+    private final Plugin plugin = new MockJavaPlugin("");
 
     @Test
     public void runnerLaunchesWorkAreaBuilder() {
